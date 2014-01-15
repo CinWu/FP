@@ -1,0 +1,229 @@
+//4 skills has healing skill.
+
+//A new turn resets _HasMoved, _HasAttacked, _UsedItem;
+
+public abstract class Character {
+
+    //*****************Counters*****************
+
+    protected boolean _HasMoved;
+    protected boolean _UsedAction; // this will determine whether or not they have used an attack or an item because in games I've played, you normally can't do both in one turn
+    protected boolean _IsStandby; //for similar reasons as above, once the player selects a "standby" or "wait" position, they are not allowed to reselect and use the character again, even if they did not move or attack before.
+
+    //*******************************************
+    
+    public Character(){
+    }
+    
+    public boolean isAlive(){
+        if (_HP <= 0) {
+	    return false;
+        }
+        return true;
+    }
+
+
+    public void move( int x, int y ) { //? because maybe grids work differently
+	
+	xDir = x;
+	yDir = y;
+ 
+	    
+	//if statement: abs(xDir) + abs(yDir) <= max number of boxes a character can move.	    
+	//xDir = how many boxes the character moved in the x direction
+	//yDir = how many boxes the character moved in the y direction
+
+    }
+
+    public void action( int i ) {
+
+	//Use action method according to number slot
+
+    }
+
+    public Character selectChar( Character s ) {
+	
+	int doWhat;
+
+	if ( !_IsStandby && s.isAlive() ) { //Not very sure about this part. Feel like there should be more security
+	    System.out.print( "Do what with " + s
+			      + "\n\t1: Move"
+			      + "\n\t2: Action"
+			      + "\n\t3: Standby";
+			      )
+		try {
+		    doWhat = Integer.parseInt( in.readLine() );    
+		}
+		catch { }//Need to read up on this
+
+	}
+
+	int selAction; 
+
+	if ( doWhat = 1 && !_HasMoved ) {
+	    //move method
+	}
+	else if ( doWhat = 2 && !_UsedAction ) {
+	    System.out.print( " Select action "
+			      + "\n\t1: " + s._action1// These will be the action names created for each specific job/class
+			      + "\n\t2: " + s._action2
+			      + "\n\t3: " + s._action3
+			      + "\n\t4: " + s._action4;
+			      )
+		try {
+		    selAction = Integer.parseInt( in.readLine() );    
+		}
+		catch { }//Need to read up on this
+
+		}
+	else if ( doWhat = 3 ) 
+	    _IsStandby = true;
+
+	}
+
+
+    //********ACTIONS*********
+    //Will each have separate action names depending on job/class 
+
+    public abstract void action1() {    } //Specific for jobs/classes
+    //will most likely be a regular attack using the character's equiped weapon, even the squishy mage's wooden staff that does like 5 damage
+           
+    public abstract void action2() {    }//Actions 2 and 3 will probably be MP based. Action 2 will probably be an attack. 
+
+    public abstract void action3() {    }//If we include items, probably a heal for mages. Else it could be another attack. Can be a support skill for other classes.
+
+    public abstract void action4() {    }//If we don't include items, this will be heal/support. If we do include items, this will be items.
+
+
+
+
+
+
+
+
+
+
+
+
+    //*********************Some older methods, may be useful********************
+
+    public int getDefense(){
+        return _Def;
+    }
+    
+    public int getEvasion(){
+        return _Evasion;
+    }
+
+    public int getLuck(){
+        return _Luck;
+    }
+
+    public int getLevel(){
+        return _Level;
+    }
+
+    public int getMP(){
+        return _MP;
+    }
+
+
+
+//Yay level up system! Does what a normal lvl up system does. Excess EXP is carried over when you lvl up.
+    public int lvlUp(){
+        if ( _CurrentExp > _NextLevelExp ){
+         _Level += 1;
+         _CurrentExp = _CurrentExp - _NextLevelExp;
+         _NextLevelExp = 100*( _Level*(4/3) );
+         statsUp();
+         System.out.print( "You have leveled up!" );
+        }
+        return _Level;
+    }
+
+//EXP gain every time a monster dies. (In this case smaug) This is put in the YoRPG class when smaug dies
+    public int expGain( Monster c ){
+        _CurrentExp += c.dropExp();
+        System.out.println("You have gained " + c.dropExp() + " EXP!");
+        lvlUp();
+        return _CurrentExp;
+    }
+    
+// //Grams gain every time a monster dies.
+//         public int gramGain ( Monster c ) {
+//         _Grams += c.dropGram();
+//         System.out.println("You have gained " + c.dropGram() + " Grams!");
+//         System.out.println("You have " + _Grams + "Grams!");
+//         return _Grams;
+//     }
+
+//     public void lowerGram ( int d ) {
+//         if (_Grams > d) {
+//             _Grams -= d;
+//             System.out.printn("You have " + _Grams + "Grams!");
+//         }
+//     }
+    
+    public boolean fleed(){
+        if ( (int) (Math.random()*_Luck + 10) < _Luck ){
+         return true; }
+        return false;
+    }
+//if random int 0 - _Luck + 10 < _luck, escape from battle. else you're stuck.
+
+
+    public void lowerHP( int d ){
+        _HP -= d;
+        System.out.println(getName()+" HP: "+_HP);
+    }
+//subtract health, does not need to return anything, could return current health though
+
+    public void gainMP( int d ) {
+        if ((_MP + d) < _MaxMP) {
+            _MP += d;
+        }
+        else {
+            _MP = _MaxMP;
+        }
+    }
+    // adds mana, does not return anything
+
+    public boolean hasHit( Character c ){
+        if (((int) (Math.random()*_Accuracy)) >= ((int) (Math.random()*c.getEvasion()))){
+         return true; }
+        return false;
+    }
+//Choses a random int from 0 to _accuracy of attacker,
+//and checks if that is greater than a random int from 0 to _evasion of the defender.
+//If it is > the attack will go through. (see attack method)
+
+
+    public void attack( Character c ){
+        if ( hasHit( c ) ) {
+         int damage = (int) ((_Attack*_AttackRating) - _TmpDef);
+         if ( damage < 0 ){
+                damage = 0;
+         }
+         c.lowerHP( damage );
+         System.out.println(c.getName()+" took "+damage+" damage."); }
+//prints the amount of damage the opposing side takes, so there is no need for this in the driver class.
+//Same for the bottom line, except the character has missed their attack and no damage is dealt.
+        else {
+         System.out.println(getName()+" has missed!");        }
+    }
+
+
+
+    public abstract String getName();
+    //get name of char if it has
+
+    public abstract void statsUp();
+    //increase stats according to char when level up.
+
+
+
+    public String tellAbout() {
+        return _About;
+    }
+
+}
