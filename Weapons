@@ -1,0 +1,6 @@
+public class Weapon extends Item {
+    protected int _ATKBoost;
+    protected int _SPATKBoost;
+    protected int _SPDBoost;
+    protected int _ACCBoost;
+}
