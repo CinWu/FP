@@ -1,0 +1,5 @@
+public class StatCure extends Potion {
+    int _HP = 0;
+    int _MP = 0;
+    boolean _Cures = true;
+}
