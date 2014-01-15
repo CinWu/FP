@@ -1,4 +1,4 @@
-public class Armour extends Items {
+public class Armor extends Items {
     protected int _DEFBoost;
     protected int _SPDEFBoost;
     protected int _EVSBoost;
