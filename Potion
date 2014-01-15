@@ -1,5 +1,6 @@
 public class Potion {
     protected int _HP;
     protected int _MP;
+    protected boolean _Cures; // does it cure status conditions
 }
 
