@@ -1,0 +1,6 @@
+public class Armour extends Items {
+    protected int _DEFBoost;
+    protected int _SPDEFBoost;
+    protected int _EVSBoost;
+    protected int _SPDBoost;
+}
