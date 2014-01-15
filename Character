@@ -1,0 +1,31 @@
+public class Character {
+
+    protected int _HP;
+    protected int _MaxHP;
+    protected int _MP;
+    protected int _MaxMP;
+    protected int _InitATK;
+    protected int _ATK;
+    protected int _InitDEF;
+    protected int _DEF;
+    protected int _InitSPATK;
+    protected int _SPATK;
+    protected int _InitSPDEF;
+    protected int _SPDEF;
+    protected int _InitSPD;
+    protected int _SPD;
+    protected int _HPPots;
+    protected int _MPPots;
+    protected int _StatCures;
+    protected int _MoveLeft;
+    protected int _MoveRight;
+    protected int _MoveForward;
+    protected int _MoveBack;
+    protected String _Left;
+    protected String _Right;
+    protected String _Forward;
+    protected String _Back;
+    protected boolean _HasMoved;
+    protected boolean _IsAlive;
+    
+}
