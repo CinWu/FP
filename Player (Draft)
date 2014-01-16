@@ -1,0 +1,16 @@
+import java.io.*;
+import java.util.*;
+public class PLayer {
+    public Character makeYourChar() {
+        System.out.println("Young hero, what is your name?");
+        String tempName = IO.readString();
+        System.out.println("Ah, what a fine name for a hero!");
+        System.out.println("Now, it's time for you to choose your profession");
+        System.our.println("Choose to be a Warrior, Mage, Scout, Tamer, or Cestus.");
+        System.out.println("");
+        System.out.println("WARNING: ONCE YOU HAVE CHOSEN YOUR PROFESSION." +
+                           "\n CANNOT SWITCH LATER. ANSWER CAREFULLY.");
+        String tempClass = IO.readString();
+
+
+
