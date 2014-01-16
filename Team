@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+
+public class Team{
+    
+    public ArrayList<Character> teemo;
+
+    public Team() {
+	teemo = new ArrayList();
+    }
+
+    // I picture a screen with a list of randomly created characters with their stats listed out that a player will be able to choose from.
+    // EX. Kharnage: Warrior: 50ATK: 40DEF: 30SPD: 10MP: 5MAGIC: 150HP
+    // I guess names would be somewhat preset then.
+    public ArrayList<Character> addTeamMember( Character c ) {
+	if ( !isFull() ) 
+	    teemo.add( c );
+	else 
+	    System.out.println( "Sorry, party is full." );
+
+	return teemo;
+    }
+    
+    public boolean isFull() {
+	if ( teemo.size() == 6 ) {
+	    return true;
+	}
+	return false;
+    }
+
+    public String printTeam() {
+	String team = "[";
+	for ( int i = 0; i < teemo.size(); i++ )
+	    team += teemo.get(i)+", ";
+	team = team.substring(0, team.length()-2) + "]";
+	return team;
+    }
+
+    public String showStats( int i ) {
+	Character c = teemo.get(i);
+	//c.returnStats(); perhaps could be method in char.and it would rtn str
+	return "";
+    }
+	
+}
+	
