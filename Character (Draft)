@@ -1,13 +1,25 @@
 //4 skills has healing skill.
 
-//A new turn resets _HasMoved, _HasAttacked, _UsedItem;
+//A new turn resets _HasMoved, _UsedAction;
+
+import java.io.*;
+import java.util.*;
+
 
 public abstract class Character {
 
+    //reads input and converts them to another form. Something that we could probs read some more about
+    private InputStreamReader isr;
+    private BufferedReader in;
+
+    protected int _Exp;
+    protected int _NextLvl;
+    protected int _Lvl;
     protected int _HP;
     protected int _MaxHP;
     protected int _MP;
     protected int _MaxMP;
+    protected int _Magic; //For slight regeneration of MP after a turn
     protected int _InitATK;
     protected int _ATK;
     protected int _InitDEF;
@@ -29,7 +41,6 @@ public abstract class Character {
     protected String _Right;
     protected String _Forward;
     protected String _Back;
-    protected boolean _HasMoved;
     protected boolean _IsAlive;
 
     //*****************Counters*****************
@@ -41,7 +52,44 @@ public abstract class Character {
     //*******************************************
     
     public Character(){
+
+	_Lvl = 1;
+	_NextLvl = 100;
+	_Exp = 0;
+	isr = new InputStreamReader( System.in );
+	in = new BufferedReader( isr );
+	
     }
+
+    //**************All of them gets*************
+    
+    public int getLvl(){
+	return _Lvl;
+    }
+
+    public int getHP(){
+	return _HP;
+    }    
+
+    public int getMP(){
+	return _MP;
+    }
+
+    public int getATK(){
+	return _ATK;
+    }
+
+    public int getDEF(){
+	return _DEF;
+    }
+
+    public int getSPD(){
+	return _SPD;
+    }
+
+    //blahblahblah
+
+    //*******************************************
     
     public boolean isAlive(){
         if (_HP <= 0) {
@@ -53,8 +101,8 @@ public abstract class Character {
 
     public void move( int x, int y ) { //? because maybe grids work differently
 	
-	xDir = x;
-	yDir = y;
+	int xDir = x;
+	int yDir = y;
  
 	    
 	//if statement: abs(xDir) + abs(yDir) <= max number of boxes a character can move.	    
@@ -64,63 +112,153 @@ public abstract class Character {
     }
 
     public void action( int i ) {
+	
+	if ( i == 1 )
+	    action1();
+	
+	else if ( i == 2 )
+	    action2();
 
-	//Use action method according to number slot
+	else if ( i == 3 )
+	    action3();
+	
+	else if ( i == 4 ) 
+	    action4();
+
+	else {
+	    //Throw exception?
+	}
 
     }
 
-    public Character selectChar( Character s ) {
+    public void selectChar( Character s ) {
 	
-	int doWhat;
+	int doWhat = 0;
 
-	if ( !_IsStandby && s.isAlive() ) { //Not very sure about this part. Feel like there should be more security
+	while ( !_IsStandby && s.isAlive() ) { //Not very sure about this part. Feel like there should be more security
 	    System.out.print( "Do what with " + s
 			      + "\n\t1: Move"
 			      + "\n\t2: Action"
-			      + "\n\t3: Standby";
-			      )
+			      + "\n\t3: Standby"
+			      );
 		try {
-		    doWhat = Integer.parseInt( in.readLine() );    
+		    doWhat = Integer.parseInt( in.readLine() );
 		}
-		catch { }//Need to read up on this
-
-	}
-
-	int selAction; 
-
-	if ( doWhat = 1 && !_HasMoved ) {
-	    //move method
-	}
-	else if ( doWhat = 2 && !_UsedAction ) {
-	    System.out.print( " Select action "
-			      + "\n\t1: " + s._action1// These will be the action names created for each specific job/class
-			      + "\n\t2: " + s._action2
-			      + "\n\t3: " + s._action3
-			      + "\n\t4: " + s._action4;
-			      )
-		try {
-		    selAction = Integer.parseInt( in.readLine() );    
+		catch ( IOException e ) {
+		    System.out.println( "Silly player, that is not an option." );
+		    selectChar( s );
+		    break;
 		}
-		catch { }//Need to read up on this
-
+		finally {
+		    if ( doWhat != 1 || doWhat != 2 || doWhat != 3 ) {
+			System.out.println( "Silly player, that is not an option" );
+			selectChar( s );
+			break;
+		    }
 		}
-	else if ( doWhat = 3 ) 
-	    _IsStandby = true;
+		
 
+		int selAction = 0; 
+
+		if ( doWhat == 1 && !_HasMoved ) {
+		    //move method
+		}
+		else if ( doWhat == 2 && !_UsedAction ) {
+		    System.out.print( " Select action "
+				      + "\n\t1: " + ""//s._action1// These will be the action names created for each specific job/class
+				      + "\n\t2: " + ""//s._action2
+				      + "\n\t3: " + ""//s._action3
+				      + "\n\t4: " + ""//s._action4
+				      );
+		    //+++++++++++++++++++++++++++++++++++++++++++++++++
+		    //+++++++++++++++++++++++++++++++++++++++++++++++++
+		    //+++++++For the sake of compiling, s._action#+++++
+		    //+++++++has been commented out.+++++++++++++++++++
+		    //+++++++remember to change.+++++++++++++++++++++++
+		    //+++++++++++++++++++++++++++++++++++++++++++++++++
+		    //+++++++++++++++++++++++++++++++++++++++++++++++++
+		    //+++++++++++++++++++++++++++++++++++++++++++++++++
+		    try {
+			selAction = Integer.parseInt( in.readLine() );
+
+		    }
+		    catch ( IOException e ) {
+			System.out.println( "Silly player, that is not an option." );
+			selectChar( s );
+			break;
+		    }
+		    finally {
+			if ( selAction != 1 || selAction != 2 || selAction != 3 || selAction !=4  ) {
+			    System.out.println( "Silly player, that is not an option" );
+			    selectChar( s );
+			    break;
+			}
+			else {
+			    action( selAction );
+			}
+		    }
+		}
+
+		else if ( doWhat == 3 ) 
+		    _IsStandby = true;
+	
 	}
-
+    }
 
     //********ACTIONS*********
     //Will each have separate action names depending on job/class 
 
-    public abstract void action1() {    } //Specific for jobs/classes
+    public abstract void action1(); //Specific for jobs/classes
     //will most likely be a regular attack using the character's equiped weapon, even the squishy mage's wooden staff that does like 5 damage
            
-    public abstract void action2() {    }//Actions 2 and 3 will probably be MP based. Action 2 will probably be an attack. 
+    public abstract void action2();//Actions 2 and 3 will probably be MP based. Action 2 will probably be an attack. Or maybe a defense.
 
-    public abstract void action3() {    }//If we include items, probably a heal for mages. Else it could be another attack. Can be a support skill for other classes.
+    public abstract void action3();//If we include items, probably a heal for mages. Else it could be another attack. Can be a support skill for other classes.
 
-    public abstract void action4() {    }//If we don't include items, this will be heal/support. If we do include items, this will be items.
+    public abstract void action4();//If we don't include items, this will be heal/support. If we do include items, this will be items.
+
+
+    //********Battle Mechanisms*********
+    
+    public void lvlUp() {
+	
+	if ( _Exp >= _NextLvl ) {
+	    
+	    _Lvl ++;
+	    _Exp = _NextLvl - _Exp;
+	    _NextLvl = 100 + 50*_Lvl;
+	    System.out.println( "has leveled up!" );
+
+	}
+    }
+    
+    public void gainExp( Character c ) {
+
+	int expGain;
+
+    	if ( !( c.isAlive() ) ) {
+	    expGain = (int)( c.getLvl()*.6 );
+	    _Exp += expGain;
+	    lvlUp();
+	    System.out.println( "gained" + expGain + "exp!" );
+	}
+    }
+
+    public int attack( Character c ) {return 1;} //will figure out after done w/ action
+
+    public void regenMP( Character c ) { //This will occur after each turn, and will go through a list, regenerating each Character's MP.
+	if ( _MP < _MaxMP )
+	    _MP += _Magic/4;
+ 
+	if ( _MP > _MaxMP )
+	    _MP = _MaxMP;
+    }
+
+
+}
+
+
+
 
 
 
