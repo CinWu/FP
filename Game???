@@ -1,0 +1,129 @@
+//Must remember to tab everything when put in emacs... GitHub messes with the spacing....
+
+import java.io.*;
+import java.util.*;
+
+public class Game {
+
+    private InputStreamReader isr;
+    private BufferedReader in;
+
+//    private static Character ENMY = new Scout(); THIS WAS FOR TESTING PURPOSES*******************
+
+    public Test(){
+        isr = new InputStreamReader( System.in );
+        in = new BufferedReader( isr );
+    }
+
+//========================3-2-1 ACTION!===============================
+    
+public void selAction( Character c ) {
+	String action = "";
+	
+	System.out.print("Choose action: \n"
+			   + "\t1: " + c.getNamu1()
+			   + "\n\t2: " + c.getNamu2()
+			   + "\n\t3: " + c.getNamu3()
+			   + "\n\t4: " + c.getNamu4() + "\n" );    
+			   
+	try {
+	    action = in.readLine();
+
+	}
+	catch ( IOException e ) {
+	    System.out.println( "Silly player, that is not an option." );
+	    selectChar( c );
+	    
+	}
+	finally {
+	    if ( !(action.equals("1")) && !(action.equals("2")) && !(action.equals("3")) && !(action.equals("4")) ) {
+		System.out.println( "Silly player, that is not an option" );
+		selectChar( c );
+	    }
+	    else if ( action.equals("1") ) {
+		Character target = selTarget();
+		c.action1(target);
+	    }
+	    else if ( action.equals("2") ){}
+	    else if ( action.equals("3") )
+		c.action3();
+	    else if ( action.equals("4") ){}
+
+	  }
+  }
+
+  public Character selTarget() {
+
+	Character target;
+	System.out.print( "Choose target: " );
+	
+//  WANT TO BE ABLE TO GET CHARACTER FROM POSITION ON GRID. IS POSSIBLE W/ SOMETHING LIKE grid.getLocation() OR SOMETHING LIKE THAT
+
+//	target = ENMY; THIS WAS ALSO FOR TESTING PORPOISES***********************
+
+	return target;
+    }
+    
+//============================================================================    
+
+//==============================CHOOSE YOUR PAWN==============================
+
+    public void selectChar( Character s ) {
+        
+        String doWhat = "";
+
+        while ( !(s.isStandby()) && s.isAlive() ) { //Not very sure about this part. Feel like there should be more security
+    	    System.out.print( "Do what with " + s.getName()
+    			      + "\n\t1: Move"
+    			      + "\n\t2: Action"
+    			      + "\n\t3: Standby\n"
+    	     		      );
+
+    	    try {
+    	    	doWhat = in.readLine();
+    	    }
+
+    	    catch ( IOException e ) {
+    	    	System.out.println( "Silly player, that is not an option." );
+    	    	selectChar( s );
+    	    }
+
+    	    finally {
+    	    	if ( !(doWhat.equals("1")) && !(doWhat.equals("2")) && !(doWhat.equals("3")) ) {
+    	    	    System.out.println( "Silly player, that is not an option" );
+    	    	    selectChar( s );
+    	    	}
+    	    }
+
+    	    if ( doWhat.equals("1") && !s.hasMoved() ) {
+    	    	//move method
+    	    }
+
+    	    else if ( doWhat.equals("2") && !s.usedAction() ) {
+		        selAction(s);
+	    }
+
+    	    else if ( doWhat.equals("3") )
+    	    	s.setStandby(true);
+	    
+        }
+    }
+
+//==============================================================================
+
+    public static void main( String[] args ) {
+	
+	Test test = new Test();
+
+        Character Me = new Scout("Scrufree");
+	//      Character ENMY = new Scout();
+
+	System.out.println(Me.getNamu1());
+	System.out.println(Me);
+	System.out.println(ENMY);
+
+        test.selectChar( Me );
+
+    }
+}
+
