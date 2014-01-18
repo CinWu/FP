@@ -3,8 +3,6 @@
 
 public abstract class Character{
 
-    //reads input and converts them to another form. Something that we could probs read some more about
- 
     protected String _Name;
     protected String _Class;
     protected int _Exp;
