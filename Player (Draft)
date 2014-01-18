@@ -1,16 +1,26 @@
 import java.io.*;
 import java.util.*;
-public class PLayer {
+public class Player {
+
+
+    private InputStreamReader isr;
+    private BufferedReader in;
+
+
+    public Player(){
+        isr = new InputStreamReader( System.in );
+        in = new BufferedReader( isr );
+    }    
+
     public Character makeYourChar() {
-        System.out.println("Young hero, what is your name?");
-        String tempName = IO.readString();
+        System.out.print("Young hero, what is your name?");
+        String tempName = in.readLine();
         System.out.println("Ah, what a fine name for a hero!");
         System.out.println("Now, it's time for you to choose your profession");
-        System.our.println("Choose to be a Warrior, Mage, Scout, Tamer, or Cestus.");
+        System.our.print("Choose to be a Warrior, Mage, Scout, Tamer, or Cestus.");
         System.out.println("");
         System.out.println("WARNING: ONCE YOU HAVE CHOSEN YOUR PROFESSION." +
                            "\n CANNOT SWITCH LATER. ANSWER CAREFULLY.");
-        String tempClass = IO.readString();
-
-
-
+        String tempClass = in.readLine();
+    }
+}
