@@ -2,17 +2,35 @@
 
 import java.io.*;
 import java.util.*;
+import java.util.ArrayList;
 
 public class Game {
 
     private InputStreamReader isr;
     private BufferedReader in;
+    
+    private static ArrayList<Character> _FieldAnts = new ArrayList(); //keep track of who's on the grid
 
-//    private static Character ENMY = new Scout(); THIS WAS FOR TESTING PURPOSES*******************
+    //THIS WAS FOR TESTING PURPOSES*******************
+    private static Character ENMY = new Scout();
+    private static Character Me = new Scout("Scrufree");
+    //
 
     public Test(){
         isr = new InputStreamReader( System.in );
         in = new BufferedReader( isr );
+        _FieldAnts.add(ENMY);
+	_FieldAnts.add(ENMY);
+	_FieldAnts.add(ENMY);
+	_FieldAnts.add(ENMY);
+	_FieldAnts.add(ENMY);
+	_FieldAnts.add(ENMY);
+	_FieldAnts.add(Me);
+	_FieldAnts.add(Me);
+	_FieldAnts.add(Me);
+	_FieldAnts.add(Me);
+	_FieldAnts.add(Me);
+	_FieldAnts.add(Me);
     }
 
 //========================3-2-1 ACTION!===============================
@@ -52,17 +70,56 @@ public void selAction( Character c ) {
 	  }
   }
 
-  public Character selTarget() {
+    public Character selTarget() {
+	Character target = null;
+        String input = "";
+        //I WOULD LIKE TO BE ABLE TO SELECT TARGET BY CLICKING ON A GRID SPACE. CAN BE DONE W/ grid.getLocation() OR SOMETHING LIKE THAT
+	System.out.print( "Choose target: \n" + 
+			  "\t1: " + _FieldAnts.get(0).getName() +
+			  "\n\t2: " + _FieldAnts.get(1).getName() +
+			  "\n\t3: " + _FieldAnts.get(2).getName() +
+			  "\n\t4: " + _FieldAnts.get(3).getName() +
+			  "\n\t5: " + _FieldAnts.get(4).getName() +
+			  "\n\t6: " + _FieldAnts.get(5).getName() +
+			  "\n\t7: " + _FieldAnts.get(6).getName() +
+			  "\n\t8: " + _FieldAnts.get(7).getName() +
+			  "\n\t9: " + _FieldAnts.get(8).getName() +
+			  "\n\t10: " + _FieldAnts.get(9).getName() +
+			  "\n\t11: " + _FieldAnts.get(10).getName() +
+			  "\n\t12: " + _FieldAnts.get(11).getName() + "\n"
+			  );
+	try {
+	    input = in.readLine();
 
-	Character target;
-	System.out.print( "Choose target: " );
-	
-//  WANT TO BE ABLE TO GET CHARACTER FROM POSITION ON GRID. IS POSSIBLE W/ SOMETHING LIKE grid.getLocation() OR SOMETHING LIKE THAT
+	}
+	catch ( IOException e ) {
+	    System.out.println( "Silly player, that is not an option." );
+	    selTarget();
+	}
+	finally {
+	    // if ( !(target.equals("1")) && !(target.equals("2")) && !(action.equals("3")) && !(action.equals("4")) ) {
+	    // 	System.out.println( "Silly player, that is not an option" );
+	    // 	selTarget();
+	    // }
+	    if ( input.equals("1") ) {
+	        target = _FieldAnts.get(0);
+	    }
+	    else if ( input.equals("12") ){
+	        target = _FieldAnts.get(11);
+	    }
+	    // else if ( action.equals("3") )
+	    // 	c.action3();
+	    // else if ( action.equals("4") ){}
 
-//	target = ENMY; THIS WAS ALSO FOR TESTING PORPOISES***********************
+	}
+
+	if ( target == null) {
+	    selTarget();
+	}
 
 	return target;
     }
+
     
 //============================================================================    
 
@@ -113,13 +170,14 @@ public void selAction( Character c ) {
 
     public static void main( String[] args ) {
 	
-	Test test = new Test();
-
-        Character Me = new Scout("Scrufree");
-	//      Character ENMY = new Scout();
+        Game test = new Game();
 
 	System.out.println(Me.getNamu1());
 	System.out.println(Me);
+//I SET THE CORDINATES FOR TESTING RANGE
+	Me.setXY(1,2);
+	ENMY.setXY(1,4);
+
 	System.out.println(ENMY);
 
         test.selectChar( Me );
