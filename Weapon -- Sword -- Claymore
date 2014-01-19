@@ -1,0 +1,9 @@
+public class Claymore extends Weapon {
+    int _ATKBoost = 72;
+    int _SPATKBoost = 5;
+    int _SPDBoost = 2;
+    int _ACCBoost = 9;
+    int _LVLReq = 50;
+    String _WeaponName = "Claymore";
+}
+
