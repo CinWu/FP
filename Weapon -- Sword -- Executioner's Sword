@@ -5,4 +5,5 @@ public class ExecutionersSword extends Weapon {
     int _ACCBoost = 15;
     int _LVLReq = 50;
     String _WeaponName = "Executioner's Sword";
+    String _WeaponType = "Sword";
 }
