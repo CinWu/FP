@@ -4,5 +4,6 @@ public class SteelSword extends Weapon {
    int _SPDBoost = 2;
    int _ACCBoost = 4;
    int  _LVLReq = 15;
+   String _WeaponName = "Steel Sword";
    String _WeaponType = "Sword";
 }
