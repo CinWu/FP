@@ -1,0 +1,8 @@
+public class Katana extends Weapon {
+   int _ATKBoost = 25;
+   int _SPATKBoost = 0;
+   int _SPDBoost = 7;
+   int _ACCBoost = 7;
+   int _LVLReq = 20;
+   String _WeaponName = "Katana";
+}
