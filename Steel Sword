@@ -1,0 +1,7 @@
+public class SteelSword extends Weapon {
+   int _ATKBoost = 20;
+   int _SPATKBoost = 0;
+   int _SPDBoost = 2;
+   int _ACCBoost = 4;
+   int  _LVLReq = 15;
+}
