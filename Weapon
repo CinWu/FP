@@ -4,6 +4,36 @@ public class Weapon extends Item {
     protected int _SPDBoost;
     protected int _ACCBoost;
     protected int _LVLReq;
-    protected String _WeaponName;
-    protected String _Type;
+    protected String _WeaponName;		
+    protected String _WeaponType;
+
+    public int getATKBoost() {
+	return _ATKBoost;
+    }
+
+    public int getSPATKBoost() {
+	return _SPATKBoost;
+    }   
+
+    public int getSPDBoost() {
+	return _SPDBoost;
+    }   
+
+    public int getACCBoost() {
+	return _ACCBoost;
+    }   
+
+    public int getLVLReg() {
+	return _LVLReq;
+    }
+
+    public String getWeaponName() {
+	return _WeaponName;
+    }
+
+    public String getWeapon() {
+	return _WeaponType;
+    }
+
 }
+
