@@ -1,0 +1,8 @@
+public class WoodenSword extends Weapon {
+   int _ATKBoost = 8;
+   int _SPATKBoost = 0;
+   int _SPDBoost = 1;
+   int _ACCBoost = 0;
+   int _LVLReq = 1;
+   String _WeaponName = "Wooden Sword";
+}
