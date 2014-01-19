@@ -1,0 +1,12 @@
+public class Flammard extends Weapon {
+    int _ATKBoost = 55;
+    int _SPATKBoost = 10;
+    int _SPDBoost = 12;
+    int _ACCBoost = 15;
+    int _LVLReq = 45;
+    String _WeaponName = "Flammard";
+}
+
+
+
+
