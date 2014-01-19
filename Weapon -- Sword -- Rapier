@@ -1,0 +1,8 @@
+public class Rapier extends Weapon {
+    int _ATKBoost = 58;
+    int _SPATKBoost = 6;
+    int _SPDBoost = 25;
+    int _ACCBoost = 20;
+    int _LVLReq = 50;
+    String _WeaponName = "Rapier";
+}
