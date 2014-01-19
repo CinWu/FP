@@ -5,4 +5,5 @@ public class Weapon extends Item {
     protected int _ACCBoost;
     protected int _LVLReq;
     protected String _WeaponName;
+    protected String _Type;
 }
