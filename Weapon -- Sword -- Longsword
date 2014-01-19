@@ -1,0 +1,9 @@
+public class LongSword extends Weapon {
+    int _ATKBoost = 30;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 3;
+    int _ACCBoost = 7;
+    int _LVLReq = 25;
+    String _WeaponName = "Longsword";
+}
+
