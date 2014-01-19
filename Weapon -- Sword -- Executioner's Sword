@@ -1,0 +1,8 @@
+public class ExecutionersSword extends Weapon {
+    int _ATKBoost = 56;
+    int _SPATKBoost = 30;
+    int _SPDBoost = 14;
+    int _ACCBoost = 15;
+    int _LVLReq = 50;
+    String _WeaponName = "Executioner's Sword";
+}
