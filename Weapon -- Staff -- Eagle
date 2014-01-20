@@ -6,4 +6,5 @@ public class Eagle extends Weapon {
     int _LVLReq = 50;
     String _WeaponName = "Eagel";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
