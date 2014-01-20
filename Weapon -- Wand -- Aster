@@ -6,4 +6,5 @@ public class Aster extends Weapon {
     int _LVLReq = 25;
     String _WeaponName = "Aster";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
