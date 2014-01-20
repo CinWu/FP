@@ -1,0 +1,9 @@
+public class Ahlspiess extends Weapon {
+    int _ATKBoost = 23;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -1;
+    int _ACCBoost = 1;
+    int _LVLReq = 10;
+    String _WeaponName = "Ahlspiess";
+    String _WeaponType = "Spear";
+}
