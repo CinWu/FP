@@ -1,0 +1,78 @@
+public class Cestus extends Character{
+
+    public Cestus() {
+        _Name = "Brute";
+	_MaxHP = 80 + (int) Math.random()*6;
+	_MaxMP = 15 + (int) Math.random()*6;
+	_InitATK = 25 + (int) Math.random()*6;
+	_InitDEF = 20 + (int) Math.random()*6;
+	_InitSPD =  8 + (int) Math.random()*6;
+	_InitSPATK = 5 + (int) Math.random()*6;
+	_InitSPDEF = 10 + (int) Math.random()*6;
+	_InitACC = 20 + (int) Math.random()*6;
+	_InitEVS = 15 + (int) Math.random()*6;
+	_HP = _MaxHP;
+	_MP = _MaxMP;
+	_ATK = _InitATK;
+	_DEF = _InitDEF;
+	_SPD = _InitSPD;
+	_SPATK = _InitSPATK;
+	_SPDEF = _InitSPDEF;
+	_ACC = _InitACC;
+	_EVS = _InitEVS;
+	_Move = 5;
+	_Magic = 2;
+
+
+    }
+
+    public Cestus( String s ) {
+	this();
+	_Name = s;
+    }
+
+    public void action1( Character c ) {
+	
+	int damage;
+	int xcor = getPosX();
+	int ycor = getPosY();		  
+
+	damage = (int)( _ATK - c._DEF);
+	
+	// if ( c.equals(Cestus) )
+	//     damage = (int)( tempAtk * .5 - c._DEF);
+	// else if ( c.equals(Mage) )
+	//     damage = (int)( tempAtk * 1.25 - c._DEF);
+	
+	if ( damage < 0 ) {
+	    damage = 0;
+	}
+	attack( c, 1, 1, damage, xcor, ycor );
+
+    }
+
+    public void action2 ( Character c ){
+	
+	int damage;
+	int xcor = getPosX();
+	int ycor = getPosY();
+     
+	damage = (int)( _ATK*.75 - c._DEF);
+	
+	// if ( c.equals(Cestus) )
+	//     damage = (int)( tempAtk * .5 - c._DEF);
+	// else if ( c.equals(Mage) )
+	//     damage = (int)( tempAtk * 1.25 - c._DEF);
+	
+	if ( damage < 0 ) {
+	    damage = 0;
+	}
+	attack( c, 1, 3, damage, xcor, ycor );
+	
+    }
+
+    public String getNamu2() {
+	return "Shockwave";
+    }
+
+}
