@@ -1,0 +1,9 @@
+public class FrozenTuna extends Weapon {
+    int _ATKBoost = 60;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 8;
+    int _ACCBoost = 8;
+    int _LVLReq = 40;
+    String _WeaponName = "Frozen Tuna";
+    String _WeaponType = "Blunt Weapon";
+}
