@@ -1,0 +1,9 @@
+public class SafetyScissors extends Weapon {
+    int _ATKBoost = 64;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 9;
+    int _ACCBoost = 9;
+    int _LVLReq = 45;
+    String _WeaponName = "Safety Scissors";
+    String _WeaponType = "Blunt Weapon";
+}
