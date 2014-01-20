@@ -164,6 +164,7 @@ public abstract class Character{
     public void action3() {
 	gainDEF(5);
 	gainSPDEF(5);
+	_UsedAction = true;
     }
     public abstract int action4(Character c);//If we don't include items, this will be heal/support. If we do include items, this will be items.
 
@@ -277,8 +278,6 @@ public abstract class Character{
 	return _ACC;
     }
 
-    protected int _Damagu;
-
     public int attack( Character c, int lo, int hi, int dam, int x, int y ) {
 	
 	if ( Math.abs( c.getPosX() - x ) + Math.abs( c.getPosY() - y ) >= lo
@@ -288,7 +287,7 @@ public abstract class Character{
 	    System.out.println( "Success" );
 	    c.loseHP(dam);
 	    gainExp( c );
-	    
+	    _UsedAction = true;
 	}
 	else 
 	    System.out.println( "Target not within range." );
@@ -296,13 +295,6 @@ public abstract class Character{
 	return dam;
     }
     
-
-
-    // public static Magic( Character c, int lo, int hi ) { 
-	
-    // 	_Namu = "Cast";
-	
-    // 	if 
 
     public String toString() {
 	String s = "=======Stats=======";
