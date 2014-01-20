@@ -1,5 +1,5 @@
 public class HPPotions extends Potion {
-  int  _HP = 50;
+  int  _HP = 30;
   int  _MP = 0;
   boolean  _Cures = false;
 }
