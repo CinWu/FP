@@ -2,7 +2,6 @@ public class Scout extends Character{
 
     public Scout() {
 	
-	//	_Name = nameAR[(int)(Math.random()*nameAR.length)]; 
 	_Name = "Ruffian";
 	_Class = "Scout";
 	_MaxHP = 60 + (int) (Math.random()*6);
@@ -48,11 +47,15 @@ public class Scout extends Character{
 
 	attack( c, 2, 3, damage, xcor, ycor );
     }
-    public int action2 ( Character c ){ return 2;}
+    
+    public void action2 ( Character c ){
+	_HasFocus = true;
+	_MP -= 3;
+    }
 
-    public int action4 ( Character c ){ return 4;}
+//Items will be set for all characters already    public int action4 ( Character c ){ return 4;}
 
     public String getNamu2() { return "Focus"; }
-    public String getNamu4() { return "Items"; }
+//    public String getNamu4() { return "Items"; }
 
 }
