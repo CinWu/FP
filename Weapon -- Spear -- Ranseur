@@ -1,0 +1,10 @@
+public class Ranseur extends Weapon {
+    int _ATKBoost = 72;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -5;
+    int _ACCBoost = -3;
+    int _LVLReq = 45;
+    String _WeaponName = "Ranseur";
+    String _WeaponType = "Spear";
+}
+
