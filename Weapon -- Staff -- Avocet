@@ -1,0 +1,9 @@
+public class Avocet extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 16;
+    int _SPDBoost = -1;
+    int _ACCBoost = 2;
+    int _LVLReq = 10;
+    String _WeaponName = "Avocet";
+    String _WeaponType = "Staff";
+}
