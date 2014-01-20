@@ -6,5 +6,6 @@ public class Goldeneye extends Weapon {
     int _LVLReq = 45;
     String _WeaponName = "Goldeneye";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
 
