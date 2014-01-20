@@ -6,5 +6,6 @@ public class Kestrel extends Weapon {
     int _LVLReq = 20;
     String _WeaponName = "Kestrel";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
 
