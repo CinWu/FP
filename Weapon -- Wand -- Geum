@@ -1,0 +1,10 @@
+public class Geum extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 47;
+    int _SPDBoost = 5;
+    int _ACCBoost = 4;
+    int _LVLReq = 35;
+    String _WeaponName = "Geum";
+    String _WeaponType = "Wand";
+}
+
