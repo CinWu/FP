@@ -1,11 +1,75 @@
 import java.util.ArrayList;
 
+//If you have time, feel free to add names.
+
 public class Team{
     
     public ArrayList<Character> teemo;
+    public ArrayList<Character> select; //Choices of party
+    public String[] NAMES = new String[36]; // Names that are totally not ripped off from games
 
     public Team() {
 	teemo = new ArrayList();
+	select = new ArrayList();
+	NAMES[0] = "Ephraim";
+	NAMES[1] = "Eirika";
+	NAMES[2] = "Tiki";
+	NAMES[3] = "Roy";
+	NAMES[4] = "Marth";
+	NAMES[5] = "Ike";
+	NAMES[6] = "Mist";
+	NAMES[7] = "Sothe";
+	NAMES[8] = "Lute";
+	NAMES[9] = "Marche";
+	NAMES[10] = "Cid";
+	NAMES[11] = "Ritz";
+	NAMES[12] = "Montblanc";
+	NAMES[13] = "Mewt";
+	NAMES[14] = "Doned";
+	NAMES[15] = "Zack";
+	NAMES[16] = "Cloud";
+	NAMES[17] = "Tifa";
+	NAMES[18] = "Rinoa";
+	NAMES[19] = "Squall";
+	NAMES[20] = "Laguna";
+	NAMES[21] = "Aerith";
+	NAMES[22] = "Sephiroth";
+	NAMES[23] = "Zidane";
+	NAMES[24] = "Garnet";
+	NAMES[25] = "Barrett";
+	NAMES[26] = "Rydia";
+	NAMES[27] = "Cecil";
+	NAMES[28] = "Kain";
+	NAMES[29] = "Rosa";
+	NAMES[30] = "Palom";
+	NAMES[31] = "Porom";
+	NAMES[32] = "Palutena";
+	NAMES[33] = "Pitt";
+	NAMES[34] = "Eris";
+	NAMES[35] = "Huenkel";
+
+    }
+
+    public void showChoices() {
+	while ( select.size() < 12 ){
+	    int n = (int) ( Math.random()*NAMES.length );
+	    int i = (int) ( Math.random()*5 );
+	    if ( i == 0 )
+		select.add(new Scout(NAMES[n]));
+	    else if ( i == 1 ) 
+		select.add(new Warrior(NAMES[n]));
+	    else if ( i == 2 ) 
+		select.add(new Mage(NAMES[n]));
+	    else if ( i == 3 ) 
+		select.add(new Cestus(NAMES[n]));
+	    else if ( i == 4 ) 
+		select.add(new Tamer(NAMES[n]));
+
+	}
+	String choices = "";
+	for ( int i = 0; i < select.size(); i++ )
+	    choices += select.get(i) + "\n";
+	System.out.println( choices );
     }
 
     // I picture a screen with a list of randomly created characters with their stats listed out that a player will be able to choose from.
@@ -27,19 +91,17 @@ public class Team{
 	return false;
     }
 
-    public String printTeam() {
-	String team = "[";
+    public String toString() {
+	String team = "";
 	for ( int i = 0; i < teemo.size(); i++ )
-	    team += teemo.get(i)+", ";
-	team = team.substring(0, team.length()-2) + "]";
+	    team += teemo.get(i) + "\n";
 	return team;
     }
-
-    public String showStats( int i ) {
-	Character c = teemo.get(i);
-	//c.returnStats(); perhaps could be method in char.and it would rtn str
-	return "";
+    
+    /*For testing purposes	
+    public static void main ( String args[] ) {
+	Team t = new Team();
+	t.showChoices();
     }
-	
+    */
 }
-	
