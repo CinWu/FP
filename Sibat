@@ -1,0 +1,9 @@
+public class Sibat extends Weapon {
+    int _ATKBoost = 37;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -3;
+    int _ACCBoost = 2;
+    int _LVLReq = 20;
+    String _WeaponName = "Sibat";
+    String _WeaponType = "Spear";
+}
