@@ -1,0 +1,9 @@
+public class Pipit extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 34;
+    int _SPDBoost = -2;
+    int _ACCBoost = 2;
+    int _LVLReq = 25;
+    String _WeaponName = "Pipit";
+    String _WeaponType = "Staff";
+}
