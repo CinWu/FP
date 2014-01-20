@@ -11,17 +11,17 @@ public class Player {
     public ArrayList<Character> teemo;
     public ArrayList<Character> select; //Choices of party
     public String[] NAMES = new String[36]; // Names that are totally not ripped off from games
-    public Player() {
+ //   public Player() {
 
     private InputStreamReader isr;
     private BufferedReader in;
 
 
     public Player(){
-        isr = new InputStreamReader( System.in );
-        in = new BufferedReader( isr );
-        	teemo = new ArrayList();
-	select = new ArrayList();
+        InputStreamReader isr = new InputStreamReader( System.in );
+        BufferedReader in = new BufferedReader( isr );
+        	ArrayList teemo = new ArrayList();
+	ArrayList select = new ArrayList();
 	NAMES[0] = "Ephraim";
 	NAMES[1] = "Eirika";
 	NAMES[2] = "Tiki";
@@ -69,7 +69,7 @@ public class Player {
         String tempName = in.readLine();
         System.out.println("Ah, what a fine name for a hero!");
         System.out.println("Now, it's time for you to choose your profession");
-        System.our.print("Choose to be a Warrior, Mage, Scout, Tamer, or Cestus.");
+        System.out.print("Choose to be a Warrior, Mage, Scout, Tamer, or Cestus.");
         System.out.println("");
         System.out.println("WARNING: ONCE YOU HAVE CHOSEN YOUR PROFESSION." +
                            "\n CANNOT SWITCH LATER. ANSWER CAREFULLY.");
