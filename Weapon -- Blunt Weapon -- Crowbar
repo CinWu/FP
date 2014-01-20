@@ -1,0 +1,10 @@
+public class Crowbar  extends Weapon {
+    int _ATKBoost = 24;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 4;
+    int _ACCBoost = 4;
+    int _LVLReq = 20;
+    String _WeaponName = "Crowbar";
+    String _WeaponType = "Blunt Weapon";
+}
+
