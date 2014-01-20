@@ -6,4 +6,5 @@ public class Eupatorium extends Weapon {
     int _LVLReq = 30;
     String _WeaponName = "Eupatorium";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
