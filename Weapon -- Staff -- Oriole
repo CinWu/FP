@@ -6,5 +6,6 @@ public class Oriole extends Weapon {
     int _LVLReq = 40;
     String _WeaponName = "Oriole";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
 
