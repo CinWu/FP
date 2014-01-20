@@ -10,7 +10,7 @@ public class Warrior extends Character{
 	_InitDEF = 25 + (int) Math.random()*6;
 	_InitSPD = 7 + (int) Math.random()*6;
 	_InitSPATK = 5 + (int) Math.random()*6;
-	_InitSPDEF = 5 + (int) Math.random()*6;
+	_InitSPDEF = 10 + (int) Math.random()*6;
 	_InitACC = 15 + (int) Math.random()*6;
 	_InitEVS = 10 + (int) Math.random()*6;
 	_HP = _MaxHP;
