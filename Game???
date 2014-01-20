@@ -62,10 +62,16 @@ public void selAction( Character c ) {
 		Character target = selTarget();
 		c.action1(target);
 	    }
-	    else if ( action.equals("2") ){}
+	    else if ( action.equals("2") ){
+		Character target = c;
+		if ( c.getNamu2() != "Focus" )
+		    target = selTarget();
+		c.action2(target);
+	    }
 	    else if ( action.equals("3") )
 		c.action3();
-	    else if ( action.equals("4") ){}
+	    else if ( action.equals("4") ){
+		c.action4();
 
 	  }
   }
@@ -162,6 +168,8 @@ public void selAction( Character c ) {
 
     	    else if ( doWhat.equals("3") )
     	    	s.setStandby(true);
+    	    else 
+		System.out.println("You cannot move or perform an action more than once.\n");
 	    
         }
     }
