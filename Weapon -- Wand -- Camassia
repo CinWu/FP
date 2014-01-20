@@ -6,4 +6,5 @@
     int _LVLReq = 20;
     String _WeaponName = "Camassia";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
