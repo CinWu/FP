@@ -1,0 +1,10 @@
+public class Larkspur extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 53;
+    int _SPDBoost = 5;
+    int _ACCBoost = 5;
+    int _LVLReq = 40;
+    String _WeaponName = "Larkspur";
+    String _WeaponType = "Wand";
+}
+
