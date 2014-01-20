@@ -6,4 +6,5 @@ public class Stick extends Weapon {
     int _LVLReq = 1;
     String _WeaponName = "Stick";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
