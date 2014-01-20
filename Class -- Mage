@@ -1,0 +1,58 @@
+public class Mage extends Character {
+    
+    public Mage() {
+	
+	_Name = "Dark Mage";
+	_Class = "Mage";
+	_Magic = 4;
+	_MaxHP = 55 + (int)(Math.random()*6);
+	_MaxMP= 30 + (int) (Math.random()*6);
+	_InitATK = 0 + (int) (Math.random()*6);
+	_InitDEF = 10 + (int) (Math.random()*6);
+ 	_InitSPD = 7 + (int) (Math.random()*6);
+	_InitSPATK = 18 + (int) (Math.random()*6);
+	_InitSPDEF = 10 + (int) (Math.random()*6);
+	_InitACC = 17 + (int) (Math.random()*6);
+	_InitEVS = 12 + (int) (Math.random()*6);
+	_HP = _MaxHP;
+	_MP = _MaxMP;
+	_ATK = _InitATK;
+	_DEF = _InitDEF;
+	_SPD = _InitSPD;
+	_SPATK = _InitSPATK;
+	_SPDEF = _InitSPDEF;
+	_ACC = _InitACC;
+	_EVS = _InitEVS;
+	_Move = 4;
+    }
+    
+    public Mage( String s ) {
+	this();
+	_Name = s;
+    }
+    
+    public void action1( Character c ) {
+	int damage;
+	int xcor = getPosX();
+	int ycor = getPosY();
+	
+	damage = (int) ( _ATK - c._DEF );
+	attack ( c, 1, 1, damage, xcor, ycor );
+
+    }
+    
+    public void action2( Character c ) {
+
+	_Namu2 = "Cast"
+	int damage;
+	int xcor = getPosX();
+	int ycor = getPosY();
+	
+	damage = (int) ( _SPATK - c._SPDEF );
+	if ( c.equals(Warrior) ) 
+	    damage *= 1.25;
+	else if ( c.equals(Scout) ) 
+	    damage *= .75;
+	magic ( c, 1, 2, damage, xcor, ycor );
+    }
+}
