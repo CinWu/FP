@@ -1,0 +1,9 @@
+public class Aster extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 34;
+    int _SPDBoost = 4;
+    int _ACCBoost = 3;
+    int _LVLReq = 25;
+    String _WeaponName = "Aster";
+    String _WeaponType = "Wand";
+}
