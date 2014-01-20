@@ -26,6 +26,7 @@ public abstract class Character{
     protected int _ACC;
     protected int _InitEVS;
     protected int _EVS;
+    protected int _Magic; //This is for slight MP regen after each turn
     
     protected int _HPPots;
     protected int _MPPots;
@@ -68,7 +69,7 @@ public abstract class Character{
     public String getNamu1() { return "Attack"; }//...action names
     public abstract String getNamu2();//...action names
     public String getNamu3() { return "Defend"; };//...action names
-    public abstract String getNamu4();//...action names
+    public String getNamu4() { return "Item" }//...action names
 
     public int getLvl() {
         return _Lvl;
@@ -166,7 +167,20 @@ public abstract class Character{
 	gainSPDEF(5);
 	_UsedAction = true;
     }
-    public abstract int action4(Character c);//If we don't include items, this will be heal/support. If we do include items, this will be items.
+    public void action4() {
+	int i = _Inventory.size();
+	if ( i == 0 ) {
+	    System.out.println("No items to use!");
+	}
+	else {
+	    String l = "Use which item?\n";
+	    for ( int r = 0; r < i ; i++ ) {
+		l += "\t" + r + ": " + _Inventory.get(r);
+	    }
+	    System.out.print( l );
+	    _UsedAction = true;
+	}
+    }
 
 
     //********Battle Mechanisms*********
