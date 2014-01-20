@@ -9,6 +9,14 @@ public class Game {
     private InputStreamReader isr;
     private BufferedReader in;
     
+    //will see what i can make out of these....
+    protected boolean _SelectChar = true;
+    protected boolean _SelectMove = false;
+    protected boolean _SelectActi = false;
+    protected boolean _SelectAct1 = false;
+    protected boolean _SelectAct2 = false;
+    protected boolean _SelectItem = false;
+    
     private static ArrayList<Character> _FieldAnts = new ArrayList(); //keep track of who's on the grid
 
     //THIS WAS FOR TESTING PURPOSES*******************
