@@ -1,0 +1,9 @@
+public class Trident extends Weapon {
+    int _ATKBoost = 79;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -5;
+    int _ACCBoost = -5;
+    int _LVLReq = 50;
+    String _WeaponName = "Trident";
+    String _WeaponType = "Spear";
+}
