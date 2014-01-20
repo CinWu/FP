@@ -1,0 +1,9 @@
+public class Wigeon extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 46;
+    int _SPDBoost = -3;
+    int _ACCBoost = 3;
+    int _LVLReq = 35;
+    String _WeaponName = "Wigeon";
+    String _WeaponType = "Staff";
+}
