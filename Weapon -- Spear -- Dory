@@ -1,0 +1,9 @@
+public class Dory extends Weapon {
+    int _ATKBoost = 16;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 0;
+    int _ACCBoost = 1;
+    int _LVLReq = 10;
+    String _WeaponName = "Dory";
+    String _WeaponType = "Spear";
+}
