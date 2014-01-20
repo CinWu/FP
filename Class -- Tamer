@@ -61,6 +61,7 @@ public class Tamer extends Character{
 	
 	if ( _MP - 10 > 0 && pets.size() < 5 ) {
 	    //pets.add( new Partner() );
+	    _MP -= 10;
 	}	    
 	else {
 	    System.out.println( "Not enough MP left." );
