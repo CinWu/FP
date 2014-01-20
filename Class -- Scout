@@ -10,7 +10,7 @@ public class Scout extends Character{
 	_InitDEF = 15 + (int) (Math.random()*6);
  	_InitSPD = 10 + (int) (Math.random()*6);
 	_InitSPATK = 7 + (int) (Math.random()*6);
-	_InitSPDEF = 7 + (int) (Math.random()*6);
+	_InitSPDEF = 10 + (int) (Math.random()*6);
 	_InitACC = 20 + (int) (Math.random()*6);
 	_InitEVS = 15 + (int) (Math.random()*6);
 	_HP = _MaxHP;
