@@ -52,7 +52,7 @@ public class Mage extends Character {
 	    damage *= 1.25;
 	else if ( c.equals(Scout) ) 
 	    damage *= .75;
-	magic ( c, 1, 2, damage, xcor, ycor );
+	attack ( c, 1, 2, damage, xcor, ycor );
     }
     
     public String getNamu2() {
