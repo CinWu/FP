@@ -1,0 +1,9 @@
+ public class Camassia extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 30;
+    int _SPDBoost = 3;
+    int _ACCBoost = 3;
+    int _LVLReq = 20;
+    String _WeaponName = "Camassia";
+    String _WeaponType = "Wand";
+}
