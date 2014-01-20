@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+
+public class Computer{
+        
+    protected ArrayList<Character> team = new ArrayList();
+
+    public Computer() {
+
+	while ( team.size() < 6 ){
+	    int i = (int) ( Math.random()*5 );
+	    if ( i == 0 )
+		team.add(new Scout());
+	    else if ( i == 1 ) 
+		team.add(new Warrior());
+	    else if ( i == 2 ) 
+		team.add(new Mage());
+	    else if ( i == 3 ) 
+		team.add(new Cestus());
+	    else if ( i == 4 ) 
+		team.add(new Tamer());
+	}
+    }
+    
+    public String toString() {
+	String t = "\n";
+	for ( int i = 0; i < team.size(); i++ ) {
+	    t += team.get(i) + "\n";
+	}
+	return t;
+    }
+/*For Testing.
+  public static void main ( String args[] ) {
+	  Computer comp = new Computer();
+	  System.out.println(comp);
+    }*/ 
+}
+
