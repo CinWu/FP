@@ -1,0 +1,9 @@
+public class Eagle extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 72;
+    int _SPDBoost = -5;
+    int _ACCBoost = 5;
+    int _LVLReq = 50;
+    String _WeaponName = "Eagel";
+    String _WeaponType = "Staff";
+}
