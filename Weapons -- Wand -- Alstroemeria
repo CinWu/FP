@@ -1,0 +1,10 @@
+public class Alstroemeria extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 13;
+    int _SPDBoost = 2;
+    int _ACCBoost = 2;
+    int _LVLReq = 10;
+    String _WeaponName = "ALstroemeria";
+    String _WeaponType = "Wand";
+}
+
