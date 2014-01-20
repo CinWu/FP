@@ -1,0 +1,11 @@
+public class SimpleSpear extends Weapon {
+    int _ATKBoost = 12;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 0;
+    int _ACCBoost = 0;
+    int _LVLReq = 1;
+    String _WeaponName = "Simple Spear";
+    String _WeaponType = "Spear";
+}
+
+
