@@ -1,0 +1,81 @@
+public class Warrior extends Character{
+
+    int _EmbCtr; // Warrior has embolden, which will boost Atk&Def for a few turns
+
+    public  Warrior() {
+        _Name = "SOLDIER";
+	_MaxHP = 80 + (int) Math.random()*6;
+	_MaxMP = 10 + (int) Math.random()*6;
+	_InitATK = 30 + (int) Math.random()*6;
+	_InitDEF = 25 + (int) Math.random()*6;
+	_InitSPD = 7 + (int) Math.random()*6;
+	_InitSPATK = 5 + (int) Math.random()*6;
+	_InitSPDEF = 5 + (int) Math.random()*6;
+	_InitACC = 15 + (int) Math.random()*6;
+	_InitEVS = 10 + (int) Math.random()*6;
+	_HP = _MaxHP;
+	_MP = _MaxMP;
+	_ATK = _InitATK;
+	_DEF = _InitDEF;
+	_SPD = _InitSPD;
+	_SPATK = _InitSPTAK;
+	_SPDEF = _InitSPDEF;
+	_ACC = _InitACC;
+	_EVS = _InitEVS;
+	_Move = 5;
+	_Weapon = "Wooden Sword";
+	_Magic = 1;
+
+	_EmbCtr = 0;
+
+    }
+
+    public Warrior( String s ) {
+	this();
+	_Name = s;
+    }
+
+    public void action1( Character c ) {
+	
+	int damage;
+	int tempAtk = _ATK; 
+	int xcor = getPosX();
+	int ycor = getPosY();
+
+	//_HasFocus boosts attack and accuracy for one attack, hence the tempAtk and tempAcc.
+	if ( _EmbCtr > 0 ) {
+	    tempAtk *= 1.25;
+	    _DEF += 2;
+	}			  
+
+	damage = (int)( tempAtk - c._DEF);
+	
+	// if ( c.equals(Cestus) )
+	//     damage = (int)( tempAtk * .5 - c._DEF);
+	// else if ( c.equals(Mage) )
+	//     damage = (int)( tempAtk * 1.25 - c._DEF);
+	
+	if ( damage < 0 ) {
+	    damage = 0;
+	}
+	attack( c, 1, 1, damage, xcor, ycor );
+
+	if ( _EmbCtr > 0 && EmbCtr < 4 )
+	    _EmbCtr ++;
+	else {
+	    _EmbCtr = 0;
+	    _DEF -= 2;
+
+    }
+
+    public void action2 ( Character c ){
+	_EmbCtr = 1;
+	_MP -= 5;
+	_UsedAction = true;
+    }
+
+    public String getNamu2() {
+	return "Embolden";
+    }
+
+}
