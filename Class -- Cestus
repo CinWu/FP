@@ -2,6 +2,7 @@ public class Cestus extends Character{
 
     public Cestus() {
         _Name = "Brute";
+        _Class = "Cestus";
 	_MaxHP = 80 + (int) Math.random()*6;
 	_MaxMP = 15 + (int) Math.random()*6;
 	_InitATK = 25 + (int) Math.random()*6;
