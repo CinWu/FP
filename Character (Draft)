@@ -111,10 +111,10 @@ public abstract class Character{
         return _SPD;
     }
     public int getPosX() {
-	return 2;
+	return xcor;
     }
     public int getPosY() {
-	return 2;
+	return ycor;
     }
     public boolean usedAction() {
 	return _UsedAction;
@@ -136,6 +136,13 @@ public abstract class Character{
          return false;
         }
         return true;
+    }
+
+    public void setXY( int x, int y ) {
+
+	xcor = x;
+	ycor = y;
+
     }
 
     public void setStandby( boolean q ) {
