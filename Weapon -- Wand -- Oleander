@@ -6,4 +6,5 @@ public class Oleander extends Weapon {
     int _LVLReq = 50;
     String _WeaponName = "Oleander";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
