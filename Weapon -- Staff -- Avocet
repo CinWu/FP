@@ -6,4 +6,5 @@ public class Avocet extends Weapon {
     int _LVLReq = 10;
     String _WeaponName = "Avocet";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
