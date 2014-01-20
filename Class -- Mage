@@ -46,13 +46,20 @@ public class Mage extends Character {
 	int damage;
 	int xcor = getPosX();
 	int ycor = getPosY();
-	
-	damage = (int) ( _SPATK - c._SPDEF );
-	if ( c.equals(Warrior) ) 
-	    damage *= 1.25;
-	else if ( c.equals(Scout) ) 
-	    damage *= .75;
-	attack ( c, 1, 2, damage, xcor, ycor );
+
+	if ( _MP - 5 > 0 ) {
+	    damage = (int) ( _SPATK - c._SPDEF );
+	    if ( c instanceof Warrior ) 
+		damage *= 1.25;
+	    else if ( c instanceof Scout ) 
+		damage *= .75;
+	    attack ( c, 1, 2, damage, xcor, ycor );
+	    _UsedAction = true;
+	    _MP -= 5;
+	}
+	else 
+	    System.out.println("Not enough MP left.");
+    }
     }
     
     public String getNamu2() {
