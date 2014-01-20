@@ -4,7 +4,7 @@ public class Warrior extends Character{
 
     public  Warrior() {
         _Name = "SOLDIER";
-        _Class = "Warrior"
+        _Class = "Warrior";
 	_MaxHP = 80 + (int) Math.random()*6;
 	_MaxMP = 10 + (int) Math.random()*6;
 	_InitATK = 30 + (int) Math.random()*6;
