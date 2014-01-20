@@ -6,5 +6,6 @@ public class Geum extends Weapon {
     int _LVLReq = 35;
     String _WeaponName = "Geum";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
 
