@@ -31,6 +31,7 @@ public abstract class Character{
     protected int _HPPots;
     protected int _MPPots;
     protected int _StatCures;
+    protected ArrayList<Object> _Inventory = new ArrayList<Object>();
 
     protected int _Move;
     protected String _Left;
