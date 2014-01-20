@@ -1,0 +1,9 @@
+public class MetalPipe extends Weapon {
+    int _ATKBoost = 12;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 2;
+    int _ACCBoost = 2;
+    int _LVLReq = 10;
+    String _WeaponName = "Metal Pipe";
+    String _WeaponType = "Blunt Weapon";
+}
