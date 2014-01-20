@@ -1,0 +1,9 @@
+public class Herring extends Weapon {
+    int _ATKBoost = 70;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 10;
+    int _ACCBoost = 10;
+    int _LVLReq = 50;
+    String _WeaponName = "Herring";
+    String _WeaponType = "Blunt Weapon";
+}
