@@ -318,21 +318,21 @@ public abstract class Character{
     
 
     public String toString() {
-	String s = "=======Stats=======";
-	s += "\nName: " + _Name;
-	s += "\nClass: " + _Class;
-	s += "\nLevel: " + _Lvl;
-	s += "\nNext Level: " + (_NextLvl - _Exp);
-	s += "\nHP: " + _HP;
-	s += "\nMP: " + _MP;
-	s += "\nAttack: " + _ATK;
-	s += "\nMagic: " + _SPATK;
-	s += "\nDefense: " + _DEF;	
-	s += "\nMagic Defense: " + _SPDEF;	
-	s += "\nSpeed: " + _SPD;	
-	s += "\nAccuracy: " + _ACC;	
-	s += "\nEvasion: " + _EVS;
-	s += "\n===================\n\n";
+	String s = "<html>=======Stats=======";
+	s += "\n<br>Name: " + _Name;
+	s += "\n<br>Class: " + _Class;
+	s += "\n<br>Level: " + _Lvl;
+	s += "\n<br>Next Level: " + (_NextLvl - _Exp);
+	s += "\n<br>HP: " + _HP;
+	s += "\n<br>MP: " + _MP;
+	s += "\n<br>Attack: " + _ATK;
+	s += "\n<br>Magic: " + _SPATK;
+	s += "\n<br>Defense: " + _DEF;	
+	s += "\n<br>Magic Defense: " + _SPDEF;	
+	s += "\n<br>Speed: " + _SPD;	
+	s += "\n<br>Accuracy: " + _ACC;	
+	s += "\n<br>Evasion: " + _EVS;
+	s += "\n<br>===================\n\n</html>";
 	return s;
     }
 }
