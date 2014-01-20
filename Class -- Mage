@@ -43,7 +43,6 @@ public class Mage extends Character {
     
     public void action2( Character c ) {
 
-	_Namu2 = "Cast"
 	int damage;
 	int xcor = getPosX();
 	int ycor = getPosY();
@@ -55,4 +54,9 @@ public class Mage extends Character {
 	    damage *= .75;
 	magic ( c, 1, 2, damage, xcor, ycor );
     }
+    
+    public String getNamu2() {
+	return "Cast";
+    }
+    	
 }
