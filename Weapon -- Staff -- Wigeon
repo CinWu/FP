@@ -6,4 +6,5 @@ public class Wigeon extends Weapon {
     int _LVLReq = 35;
     String _WeaponName = "Wigeon";
     String _WeaponType = "Staff";
+    String _WeaponClass = "Mage";
 }
