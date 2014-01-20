@@ -1,0 +1,9 @@
+public class Gichang extends Weapon {
+    int _ATKBoost = 44;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -4;
+    int _ACCBoost = 2;
+    int _LVLReq = 25;
+    String _WeaponName = "Gichang";
+    String _WeaponType = "Spear";
+}
