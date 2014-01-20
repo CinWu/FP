@@ -1,0 +1,9 @@
+public class Saxophone extends Weapon {
+    int _ATKBoost = 32;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 5;
+    int _ACCBoost = 5;
+    int _LVLReq = 25;
+    String _WeaponName = "Saxophone";
+    String _WeaponType = "Blunt Weapon";
+}
