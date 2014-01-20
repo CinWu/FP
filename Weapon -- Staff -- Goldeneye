@@ -1,0 +1,10 @@
+public class Goldeneye extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 62;
+    int _SPDBoost = -4;
+    int _ACCBoost = 4;
+    int _LVLReq = 45;
+    String _WeaponName = "Goldeneye";
+    String _WeaponType = "Staff";
+}
+
