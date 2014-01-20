@@ -6,4 +6,5 @@ public class Lysimachia extends Weapon {
     int _LVLReq = 45;
     String _WeaponName = "Lysimachia";
     String _WeaponType = "Wand";
+    String _WeaponClass = "Mage";
 }
