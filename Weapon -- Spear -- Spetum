@@ -1,0 +1,9 @@
+public class Spetum extends Weapon {
+    int _ATKBoost = 51;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -5;
+    int _ACCBoost = 3;
+    int _LVLReq = 30;
+    String _WeaponName = "Spetum";
+    String _WeaponType = "Spear";
+}
