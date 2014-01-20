@@ -1,0 +1,176 @@
+//Hopefully I remember things I did so that I can deal with them in the morning.
+//Such as now field has input player p to set the player's team before a match
+//Field needs to set Computer's random positions
+//Perhaps even player's?
+
+
+import javax.swing.*;
+import java.awt.GridLayout;
+import java.awt.event.*;
+import java.util.EventObject;
+import java.util.ArrayList;
+
+public class Field extends Game implements ActionListener {
+
+    JFrame field = new JFrame(); //creates frame
+    JButton[][] grid; //names the grid of buttons
+
+    ArrayList<Character> cTeam;
+    ArrayList<Character> pTeam;
+
+    public Field( int w, int l, Player p ) {
+	
+	field.setLayout( new GridLayout(w,l) ); //set layout
+	grid = new JButton[w][l]; //allocate the size of grid
+	for( int y = 0; y < l; y++ ){
+	    for( int x = 0; x < w; x++ ){
+		grid[x][y] = new JButton("("+x+","+y+")"); //creates new button    
+		grid[x][y].setName( x + ", " + y );
+		grid[x][y].addActionListener(this);
+		field.add(grid[x][y]); //adds button to grid
+			       
+	    }
+	}
+
+	Computer newCpu = new Computer();
+	addComp( newCpu );
+	addPlay( p );
+	setPos();
+
+	//               field.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	field.setSize(600,550); 
+	field.setVisible(true);
+	field.setResizable(false);
+
+
+    }
+
+    //=========HELPER FUNCTIONS===========
+
+
+    //=========List of Teams==========
+    public void addComp( Computer cpu ) {
+	cTeam = cpu.getTeam();
+    }
+	
+    public void addPlay( Player pl ) {
+	pTeam = pl.getTeam();
+    }
+
+    //===========Search for characters on a square=======
+    public boolean anyChars( int x, int y ) {
+	
+	for ( int i = 0; i < cTeam.size(); i++ ) {
+	    if ( cTeam.get(i).getPosX() == x && cTeam.get(i).getPosY() == y )
+		return true;
+	}
+	for ( int i = 0; i < pTeam.size(); i++ ) {
+	    if ( pTeam.get(i).getPosX() == x && pTeam.get(i).getPosY() == y ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    //=========List Character on square=========
+    public Character listChar( int x, int y ) {
+	if ( !anyChars(x,y) ) {
+	    return null;
+	}
+
+	for ( int i = 0; i < cTeam.size() - 1; i++ ) {
+	    if ( cTeam.get(i).getPosX() == x && cTeam.get(i).getPosY() == y )
+		return cTeam.get(i);
+	}
+	for ( int i = 0; i < pTeam.size() - 1; i++ ) {
+	    if ( pTeam.get(i).getPosX() == x && pTeam.get(i).getPosY() == y ) {
+		return pTeam.get(i);
+	    }
+	}
+	return null;
+    }
+
+    //=================SET CHARACTER POSITION ON RANDOM MAP SQUARE=============
+
+    public void setPos() {
+	for ( Character x : cTeam ) {
+	    setOnMapC( x );
+	}
+	for ( Character x : pTeam ) {
+	    setOnMapP( x );
+	}	
+    }
+
+    public void setOnMapC( Character x ) {
+    	int xcoor = (int)(grid.length*.25)+(int)(Math.random()*grid.length*.25);
+    	int ycoor = (int)(grid[0].length*.25)+(int)(Math.random()*grid[0].length*.25);
+    	if ( !anyChars(xcoor,ycoor) ){
+    	    x.setXY( xcoor, ycoor ); 
+    	}
+	else { setOnMapC( x ); };
+    }
+
+    public void setOnMapP( Character x ) {
+    	int xcor = (int)(Math.random()*grid.length*.25);
+    	int ycor = (int)(Math.random()*grid[0].length*.25);
+
+    	if ( !anyChars(xcor,ycor) ){
+	System.out.println(xcor+","+ycor);
+    	    x.setXY( xcor, ycor ); 
+    	}
+	else { setOnMapP( x ); };
+    }
+
+    //========================================================
+
+    public void actionPerformed( ActionEvent event ) {
+	//Button's x and y coordinates
+	int bx = 0;
+	int by = 0;
+
+	//Successfully returns the button's x and y coords!
+	//event.getSource taken from util.EventObject finds the name of the button that was clicked. So you go through the grid searching for that button and later get its x and y coord
+	for ( int x = 0; x < grid.length; x++ ) {
+	    for ( int y = 0; y < grid[0].length; y++ ) {
+		if( grid[x][y] == event.getSource() ) { 
+		    bx = x;
+		    by = y;
+		}
+	    }
+	}
+
+	//Select Character and do stuff
+	if ( _SelectChar = true ) { 
+	    if ( listChar( bx, by ) == null ) {
+		System.out.println( "Select again." );
+	    }
+	    else {
+		selectChar( listChar( bx, by ) );
+		if ( _SelectMove = true ) {
+		    //move
+	    }
+	}
+	// else if ( _SelectMove = true ) {
+	//     if 
+	// //*************************************
+	// //*************************************
+	// //*************************************
+	// //*************************************
+	// //NEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+	// if ( !anyChars( x, y ) ) {
+	//     //  
+	// //*************************************
+	// //*************************************
+	// //*****************************
+
+
+	//You can use the commented code to test the get x and y coords
+	//	JButton clickedButton = (JButton)event.getSource();
+	//	clickedButton.setText(bx +","+ by);
+    }
+
+    public static void main ( String args[] ) {
+	Player dude = new Player();
+	Field testmap = new Field(10,10,dude);
+    }
+}
