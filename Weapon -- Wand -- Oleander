@@ -1,0 +1,9 @@
+public class Oleander extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 65;
+    int _SPDBoost = 6;
+    int _ACCBoost = 6;
+    int _LVLReq = 50;
+    String _WeaponName = "Oleander";
+    String _WeaponType = "Wand";
+}
