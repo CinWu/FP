@@ -1,0 +1,10 @@
+public class Ji extends Weapon {
+    int _ATKBoost = 65;
+    int _SPATKBoost = 0;
+    int _SPDBoost = -5;
+    int _ACCBoost = -2;
+    int _LVLReq = 40;
+    String _WeaponName = "Ji";
+    String _WeaponType = "Spear";
+}
+
