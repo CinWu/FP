@@ -1,4 +1,4 @@
-public class Ahlspiess extends Weapon {
+public class Ahlspeiss extends Weapon {
     int _ATKBoost = 23;
     int _SPATKBoost = 0;
     int _SPDBoost = -1;
