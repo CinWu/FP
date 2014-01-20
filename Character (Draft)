@@ -69,7 +69,7 @@ public abstract class Character{
     public String getNamu1() { return "Attack"; }//...action names
     public abstract String getNamu2();//...action names
     public String getNamu3() { return "Defend"; };//...action names
-    public String getNamu4() { return "Item" }//...action names
+    public String getNamu4() { return "Item"; }//...action names
 
     public int getLvl() {
         return _Lvl;
