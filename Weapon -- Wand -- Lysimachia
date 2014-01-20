@@ -1,0 +1,9 @@
+public class Lysimachia extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 59;
+    int _SPDBoost = 6;
+    int _ACCBoost = 5;
+    int _LVLReq = 45;
+    String _WeaponName = "Lysimachia";
+    String _WeaponType = "Wand";
+}
