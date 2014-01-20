@@ -1,0 +1,9 @@
+public class Plover extends Weapon {
+    int _ATKBoost = 0;
+    int _SPATKBoost = 22;
+    int _SPDBoost = -1;
+    int _ACCBoost = 2;
+    int _LVLReq = 15;
+    String _WeaponName = "Plover";
+    String _WeaponType = "Staff";
+}
