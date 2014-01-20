@@ -57,7 +57,7 @@ public class Mage extends Character {
 	    _UsedAction = true;
 	    _MP -= 5;
 	}
-	else {
+	else 
 	    System.out.println("Not enough MP left.");
     }
     }
