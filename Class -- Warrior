@@ -18,12 +18,12 @@ public class Warrior extends Character{
 	_ATK = _InitATK;
 	_DEF = _InitDEF;
 	_SPD = _InitSPD;
-	_SPATK = _InitSPTAK;
+	_SPATK = _InitSPATK;
 	_SPDEF = _InitSPDEF;
 	_ACC = _InitACC;
 	_EVS = _InitEVS;
 	_Move = 5;
-	_Weapon = "Wooden Sword";
+	//	_Weapon = "Wooden Sword";
 	_Magic = 1;
 
 	_EmbCtr = 0;
@@ -60,12 +60,13 @@ public class Warrior extends Character{
 	}
 	attack( c, 1, 1, damage, xcor, ycor );
 
-	if ( _EmbCtr > 0 && EmbCtr < 4 )
+	if ( _EmbCtr > 0 && _EmbCtr < 4 )
 	    _EmbCtr ++;
 	else {
 	    _EmbCtr = 0;
 	    _DEF -= 2;
 
+	}
     }
 
     public void action2 ( Character c ){
