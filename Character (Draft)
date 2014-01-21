@@ -1,5 +1,7 @@
 //A new turn resets _HasMoved, _HasAttacked, _UsedItem;
-
+import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public abstract class Character{
 
@@ -27,6 +29,7 @@ public abstract class Character{
     protected int _InitEVS;
     protected int _EVS;
     protected int _Magic; //This is for slight MP regen after each turn
+    protected String _StatusCondition;
     
     protected int _HPPots;
     protected int _MPPots;
@@ -191,7 +194,7 @@ public abstract class Character{
 	gainSPDEF(5);
 	_UsedAction = true;
     }
-    public void action4() {
+    /* public void action4() {
 	int i = _Inventory.size();
 	if ( i == 0 ) {
 	    System.out.println("No items to use!");
@@ -204,7 +207,31 @@ public abstract class Character{
 	    System.out.print( l );
 	    _UsedAction = true;
 	}
-    }
+    } */
+            public void action4() {
+            int i = _Inventory.size();
+
+            if ( i == 0 ) {
+                System.out.println("No items to use!");
+            }
+            else {
+
+                String l = "Use which item?\n";
+
+                for ( int r = 0; r < i ; r++ ) {
+
+                    System.out.println( _Inventory.get(r) );
+                }
+                String s = keyboard.readLine();
+                while (!((s.equals(
+
+
+                try { o = in.readLine(
+
+                _UsedAction = true;
+            }
+        }
+
 
 
     //********Battle Mechanisms*********
@@ -336,6 +363,26 @@ public abstract class Character{
 	
 	return dam;
     }
+    
+            public String statusConditionEffect() {
+            String retStr = "";
+            if (_StatusCondition.equals("Poisoned")) {
+                loseHP(3);
+                retStr = "Poisoning hurts.";
+            }
+            else if (_StatusCondition.equals("Paralyzed")) {
+                _Move = 0;
+                retStr = "I can't move. Curse you paralysis...";
+            }
+
+        }
+
+        public String normalize() {
+            String retStr = "You're status condition has disappeared. Hooray!";
+            _StatusCondition = "None";
+            _Move = _InitMove;
+            return retStr;
+        }
     
 
     public String toString() {
