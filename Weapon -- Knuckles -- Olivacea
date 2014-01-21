@@ -1,0 +1,10 @@
+public class Olivacea extends Weapon {
+    int _ATKBoost = 12;
+    int _SPATKBoost = 5;
+    int _SPDBoost = 1;
+    int _ACCBoost = 0;
+    int _LVLReq = 10;
+    String _WeaponName = "Olivacea";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Knuckles";
+}
