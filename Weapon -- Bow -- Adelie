@@ -1,0 +1,11 @@
+public class Adelie extends Weapon {
+    int _ATKBoost = 7;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 3;
+    int _ACCBoost = 0;
+    int _LVLReq = 10;
+    String _WeaponName = "Adelie";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
+
