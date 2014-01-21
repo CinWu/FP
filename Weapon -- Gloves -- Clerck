@@ -4,7 +4,7 @@ public class Clerck extends Weapon {
     int _SPDBoost = 4;
     int _ACCBoost = 4;
     int _LVLReq = 20;
-    String _WeaponName = "Clerck";
+    String _ItemName = "Clerck";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Gloves";
 }
