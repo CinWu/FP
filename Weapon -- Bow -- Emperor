@@ -1,0 +1,13 @@
+public class Emperor  extends Weapon {
+    int _ATKBoost = 23;
+    int _SPATKBoost = 10;
+    int _SPDBoost = 20;
+    int _ACCBoost = 20;
+    int _LVLReq = 50;
+    String _WeaponName = "Emperor";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
+
+
+
