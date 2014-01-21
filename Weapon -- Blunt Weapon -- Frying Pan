@@ -4,7 +4,7 @@ public class FryingPan extends Weapon {
     int _SPDBoost = 7;
     int _ACCBoost = 7;
     int _LVLReq = 35;
-    String _WeaponName = "Frying Pan";
+    String _ItemName = "Frying Pan";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
