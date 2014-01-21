@@ -4,7 +4,7 @@ public class MetalKnuckles extends Weapon {
     int _SPDBoost = 0;
     int _ACCBoost = 0;
     int _LVLReq = 1;
-    String _WeaponName = "Metal Knuckles";
+    String _ItemName = "Metal Knuckles";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
