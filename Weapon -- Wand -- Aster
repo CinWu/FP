@@ -4,7 +4,7 @@ public class Aster extends Weapon {
     int _SPDBoost = 4;
     int _ACCBoost = 3;
     int _LVLReq = 25;
-    String _WeaponName = "Aster";
+    String _ItemName = "Aster";
     String _WeaponType = "Wand";
     String _WeaponClass = "Mage";
 }
