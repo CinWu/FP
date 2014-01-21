@@ -4,7 +4,7 @@ public class Ji extends Weapon {
     int _SPDBoost = -5;
     int _ACCBoost = -2;
     int _LVLReq = 40;
-    String _WeaponName = "Ji";
+    String _ItemName = "Ji";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Spear";
 }
