@@ -4,7 +4,7 @@ public class RealSword extends Weapon {
     int _SPDBoost = 3;
     int _ACCBoost = 3;
     int _LVLReq = 10;
-    String _WeaponName = "Real Sword";
+    String _ItemName = "Real Sword";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Sword";
 }
