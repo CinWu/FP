@@ -1,4 +1,4 @@
-public class Bivitattus extends Weapon {
+public class Bivittatus extends Weapon {
     int _ATKBoost = 36;
     int _SPATKBoost = 113;
     int _SPDBoost = 7;
