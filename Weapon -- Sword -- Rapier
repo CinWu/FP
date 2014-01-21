@@ -4,7 +4,7 @@ public class Rapier extends Weapon {
     int _SPDBoost = 25;
     int _ACCBoost = 20;
     int _LVLReq = 50;
-    String _WeaponName = "Rapier";
+    String _ItemName = "Rapier";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Sword";
 }
