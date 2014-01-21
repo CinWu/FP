@@ -1,0 +1,11 @@
+public class Clerck extends Weapon {
+    int _ATKBoost = 117;
+    int _SPATKBoost = 17;
+    int _SPDBoost = 4;
+    int _ACCBoost = 4;
+    int _LVLReq = 20;
+    String _WeaponName = "Clerck";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
+
