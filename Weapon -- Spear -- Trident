@@ -4,7 +4,7 @@ public class Trident extends Weapon {
     int _SPDBoost = -5;
     int _ACCBoost = -5;
     int _LVLReq = 50;
-    String _WeaponName = "Trident";
+    String _ItemName = "Trident";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Spear";
 }
