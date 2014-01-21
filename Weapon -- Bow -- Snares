@@ -4,7 +4,7 @@ public class Snares  extends Weapon {
     int _SPDBoost = 15;
     int _ACCBoost = 15;
     int _LVLReq = 45;
-    String _WeaponName = "Snares";
+    String _ItemName = "Snares";
     String _WeaponClass = "Scout";
     String _WeaponType = "Bow";
 }
