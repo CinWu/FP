@@ -1,0 +1,10 @@
+public class Stellata extends Weapon {
+    int _ATKBoost = 45;
+    int _SPATKBoost = 45;
+    int _SPDBoost = 10;
+    int _ACCBoost = 10;
+    int _LVLReq = 50;
+    String _WeaponName = "Stellata";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
