@@ -1,16 +1,10 @@
-//Hopefully I remember things I did so that I can deal with them in the morning.
-//Such as now field has input player p to set the player's team before a match
-//Field needs to set Computer's random positions
-//Perhaps even player's?
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.EventObject;
 import java.util.ArrayList;
 
-public class Field extends Game implements ActionListener {
+public class Field extends Game {
 
     //This will be the "finished piece"
     JFrame full = new JFrame();
@@ -21,12 +15,19 @@ public class Field extends Game implements ActionListener {
     JPanel actPan = new JPanel(new FlowLayout(FlowLayout.CENTER));
     
     JButton[][] grid; //names the grid of buttons
-    JButton[][] actions = new JButton[3][2];
+
+    
     JButton stats;
+    JButton mov;
+    JButton act;
+    JButton stby;
+
+    JFrame actList = new JFrame("Actions");
     JButton act1;
     JButton act2;
     JButton act3;
     JButton act4;
+
 
     ArrayList<Character> cTeam;
     ArrayList<Character> pTeam;
@@ -41,7 +42,7 @@ public class Field extends Game implements ActionListener {
 	    for( int x = 0; x < w; x++ ){
 		grid[x][y] = new JButton("("+x+","+y+")"); //creates new button
 		grid[x][y].setName( x + ", " + y );
-		grid[x][y].addActionListener(this);
+		grid[x][y].addActionListener(new GridListener());
 		field.add(grid[x][y]); //adds button to grid
 	    }
 	}
@@ -52,27 +53,24 @@ public class Field extends Game implements ActionListener {
 	
 	actPan.setPreferredSize( new Dimension ( 150, 550 ) ); 
 	
-	act1 = new JButton("Attack");
-	act1.setPreferredSize(new Dimension(100,20));
-	act1.addActionListener(this);
-	act2 = new JButton("???");
-	act2.setPreferredSize(new Dimension(100,20));
-	act2.addActionListener(this);
-	act3 = new JButton("Defend");
-	act3.setPreferredSize(new Dimension(100,20));
-	act3.addActionListener(this);
-	act4 = new JButton("Items");
-	act4.setPreferredSize(new Dimension(100,20));
-	act4.addActionListener(this);
+	mov = new JButton("Move");
+	mov.setPreferredSize(new Dimension(100,20));
+	mov.addActionListener(new ClickAction());
+	act = new JButton("Action");
+	act.setPreferredSize(new Dimension(100,20));
+	act.addActionListener(new ActListener());
+	stby = new JButton("Standby");
+	stby.setPreferredSize(new Dimension(100,20));
+	stby.addActionListener(new ClickAction());
+
 	stats = new JButton("Stats");
 	stats.setPreferredSize(new Dimension(150,400));
-	stats.addActionListener(this);
-	actPan.add( act1 );
-	actPan.add( act2 );
-	actPan.add( act3 );
-	actPan.add( act4 );
-	actPan.add( stats );
+	stats.addActionListener(new GridListener());
 
+	actPan.add( act );
+	actPan.add( mov );
+	actPan.add( stby );
+	actPan.add( stats );
 
 	full.getContentPane().add( BorderLayout.EAST, actPan );
 
@@ -84,7 +82,7 @@ public class Field extends Game implements ActionListener {
 	setPos();
 
 	//               field.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	full.setSize(1000,550); 
+	full.setSize(700,550); 
 	full.setVisible(true);
 	full.setResizable(false);
 
@@ -121,9 +119,8 @@ public class Field extends Game implements ActionListener {
 
     //=========List Character on square=========
     public Character listChar( int x, int y ) {
-	if ( !anyChars(x,y) ) {
+	if ( !anyChars(x,y) )
 	    return null;
-	}
 
 	for ( int i = 0; i < cTeam.size(); i++ ) {
 	    if ( cTeam.get(i).getPosX() == x && cTeam.get(i).getPosY() == y ) {
@@ -174,35 +171,63 @@ public class Field extends Game implements ActionListener {
 
     //========================================================
 
-    public void actionPerformed( ActionEvent event ) {
-	
-	JButton source = (JButton)event.getSource();
-	
-	if ( source != act1 && source != act2 &&
-	     source != act3 && source != act4 ) { 
-	    //Button's x and y coordinates
-	    int bx = 0;
-	    int by = 0;
+    class GridListener implements ActionListener {
 
-	    //Successfully returns the button's x and y coords!
-	    //event.getSource taken from util.EventObject finds the name of the button that was clicked. So you go through the grid searching for that button and later get its x and y coord
+	public void actionPerformed( ActionEvent event ) {
+	
+	    JButton source = (JButton)event.getSource();
+	    JFrame nope;
 
-	    for ( int x = 0; x < grid.length; x++ ) {
-		for ( int y = 0; y < grid[0].length; y++ ) {
-		    if( grid[x][y] == source ) { 
-			bx = x;
-			by = y;
+	    if ( source != act1 && source != act2 &&
+		 source != act3 && source != act4 ) { 
+		//Button's x and y coordinates
+		int bx = 0;
+		int by = 0;
+
+		//Successfully returns the button's x and y coords!
+		//event.getSource taken from util.EventObject finds the name of the button that was clicked. So you go through the grid searching for that button and later get its x and y coord
+
+		for ( int x = 0; x < grid.length; x++ ) {
+		    for ( int y = 0; y < grid[0].length; y++ ) {
+			if( grid[x][y] == source ) { 
+			    bx = x;
+			    by = y;
+			}
 		    }
 		}
-	    }
-	    //Select Character and do stuff
-	    if ( _SelectChar || _ClickAct ) { 
-		if ( listChar( bx, by ) == null ) {
-		    System.out.println( "Select again." );
-		}
+ 
+		if ( listChar( bx, by ) == null 
+		     ||
+		     listChar( bx, by ).isStandby() ) {
+		    
+		    //MOVE TO NEW POSITION IF POSSIBLE
+		  
+		    if ( _SelectMove && anyChars( bx, by ) ) {
+			JFrame no = new JFrame("STOP!");
+			System.out.println("Cannot move here.");
+			JOptionPane.showMessageDialog(no, "No.");
+			_SelectMove = false;
+		    }
 
+		    else if ( listChar( bx, by ) == null && _SelectMove ) {
+						
+			_SelectMove = false;
+			selection.move( bx, by );
+
+		    }
+		    
+		    //RETURN THE STATS
+		    else if ( anyChars( bx, by ) ) {
+
+			act2.setText(listChar( bx, by ).toString());
+			stats.setText(listChar( bx, by ).toString());
+		    }
+		}
+		    
 		else if ( _isCpu ) {
 		    stats.setText(listChar( bx, by ).toString());
+		    act2.setText(listChar( bx, by ).toString());
+
 		    if ( _ClickAct ) {
 			target = listChar( bx, by );
 			selection.action1(target);
@@ -216,29 +241,106 @@ public class Field extends Game implements ActionListener {
 		    if ( _ClickAct ) {
 			target = listChar( bx, by );
 			_ClickAct = false;
-			_SelectChar = true;
-			selection.action1(target);
+			if ( _WhichAct == 1 ) 
+			    selection.action1(target);
 
+			else if ( _WhichAct == 2 )
+			    if ( selection instanceof Scout || 
+				 selection instanceof Warrior )
+				target = selection;
+
+			    selection.action2(target);
 		    }
 
 		    else 
 			selection = ( listChar( bx, by ) );
 		    
-		}	
+		}  
 	    }
 	}
-	    
+    }
   //=============Perform actions==================
 
-	else if ( source.equals( act1 ) && selection != null ) {
-	    _ClickAct = true;
-	    _SelectChar = false;
+    class ClickAction implements ActionListener {
+	
+	public void actionPerformed ( ActionEvent event ) {
+	    JButton source = (JButton)event.getSource();
+	    if ( source.equals( act1 ) && selection != null ) {
+	    	_ClickAct = true;
+	    	_WhichAct = 1;
+		actList.dispose();
+	    }
+	    
+	    else if ( source.equals( act2 ) && selection != null ) {
+	    	_ClickAct = true;
+	    	_WhichAct = 2;
+		actList.dispose();
+	    }
+	    else if ( source.equals( act3 ) && selection != null ) {
+	    	_ClickAct = true;
+	    	selection.action3();
+		actList.dispose();
+	    }
+	    else if ( source.equals( act4 ) && selection != null ) {
+	    	_ClickAct = true;
+	    	selection.action4();
+		actList.dispose();
+	    }
+	    else if ( source.equals( mov ) 
+		      && selection != null 
+		      && !(selection.hasMoved()) ) {
+	        _SelectMove = true;
+	    }
+	    else if ( source.equals( stby ) && selection != null ) {
+		selection.setStandby(true);
+	    }
 	}
     }
-		
 
+    class ActListener implements ActionListener {
+	
+	public ActListener() {
+	    
+	    actList.setLayout( new GridLayout( 2,2 ) );
+	    
+
+	    //buttons-Buttons-BUTTONS!
+	    act1 = new JButton("Attack");
+	    act1.addActionListener(new ClickAction());
+	    act2 = new JButton("???");
+	    act2.addActionListener(new ClickAction());
+	    act3 = new JButton("Defend");
+	    act3.addActionListener(new ClickAction());
+	    act4 = new JButton("Items");
+	    act4.addActionListener(new ClickAction());
+	    actList.add( act1 );
+	    actList.add( act2 );
+	    actList.add( act3 ); 
+	    actList.add( act4 );
+	    //=========================
+	
+	}
+
+	public void actionPerformed ( ActionEvent event ) {
+
+	    if ( selection != null && selection.usedAction() ) { 
+		System.out.println("Cannot act more than once in a single turn.");
+		JFrame no = new JFrame("STOP!");
+		JOptionPane.showMessageDialog(no, "Cannot act more than once in a single turn.");
+		}
+	    else {
+		//MAKE SCREEN POP UP!
+		actList.setSize(200,100);
+		actList.setVisible(true);
+		actList.setResizable(false);
+		
+		act2.setText( selection.getNamu2() );
+	    }
+	}
+    }
     public static void main ( String args[] ) {
 	Player dude = new Player();
 	Field testmap = new Field(10,10,dude);
     }
 }
+
