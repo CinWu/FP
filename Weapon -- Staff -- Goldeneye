@@ -4,7 +4,7 @@ public class Goldeneye extends Weapon {
     int _SPDBoost = -4;
     int _ACCBoost = 4;
     int _LVLReq = 45;
-    String _WeaponName = "Goldeneye";
+    String _ItemName = "Goldeneye";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
