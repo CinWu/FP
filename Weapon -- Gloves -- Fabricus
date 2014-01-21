@@ -1,0 +1,10 @@
+public class Fabricus extends Weapon {
+    int _ATKBoost = 35;
+    int _SPATKBoost = 35;
+    int _SPDBoost = 8;
+    int _ACCBoost = 8;
+    int _LVLReq = 40;
+    String _WeaponName = "Fabricus";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
