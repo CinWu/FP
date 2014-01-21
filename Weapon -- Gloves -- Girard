@@ -4,7 +4,7 @@ public class Girard extends Weapon {
     int _SPDBoost = 6;
     int _ACCBoost = 6;
     int _LVLReq = 30;
-    String _WeaponName = "Girard";
+    String _ItemName = "Girard";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Gloves";
 }
