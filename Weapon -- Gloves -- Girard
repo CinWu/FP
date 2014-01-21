@@ -1,0 +1,11 @@
+public class Girard extends Weapon {
+    int _ATKBoost = 27;
+    int _SPATKBoost = 27;
+    int _SPDBoost = 6;
+    int _ACCBoost = 6;
+    int _LVLReq = 30;
+    String _WeaponName = "Girard";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
+
