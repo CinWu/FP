@@ -4,7 +4,7 @@ public class FrozenTuna extends Weapon {
     int _SPDBoost = 8;
     int _ACCBoost = 8;
     int _LVLReq = 40;
-    String _WeaponName = "Frozen Tuna";
+    String _ItemName = "Frozen Tuna";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
