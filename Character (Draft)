@@ -138,6 +138,18 @@ public abstract class Character{
         }
         return true;
     }
+    
+    public void setStandby( boolean q ) {
+	_IsStandby = q;
+    }
+
+    public void setMoved( boolean q ) {
+	_HasMoved = q;
+    }
+
+    public void setUsedAct( boolean q ) {
+	_UsedAction = q;
+    }
 
     public void setXY( int x, int y ) {
 
@@ -145,21 +157,22 @@ public abstract class Character{
 	ycor = y;
 
     }
+    public void move( int x, int y ) {
 
-    public void setStandby( boolean q ) {
-	_IsStandby = q;
-    }
-
-    public void move( int x, int y ) { //? because maybe grids work differently
-        
         int xDir = x;
         int yDir = y;
- 
-        
-        //if statement: abs(xDir) + abs(yDir) <= max number of boxes a character can move.        
-        //xDir = how many boxes the character moved in the x direction
-        //yDir = how many boxes the character moved in the y direction
-
+	
+        if ( Math.abs(xDir) + Math.abs(yDir) <= _Move ) {        
+	    xcor = x;
+	    ycor = y;
+	    _HasMoved = true;
+	}
+	
+	else {
+	    JFrame no = new JFrame("Stop!");
+	    System.out.println("Out of move distance.");
+	    JOptionPane.showMessageDialog(no, "Out of move range.");
+	}
     }
 
     //********************ACTIONS*****************************
@@ -201,6 +214,10 @@ public abstract class Character{
          _Exp = _NextLvl - _Exp;
          _NextLvl = 100 + 50*_Lvl;
          System.out.println( "has leveled up!" );
+         
+	 JFrame yay = new JFrame("LVL");
+	 JOptionPane.showMessageDialog(yay, "Level Up!.");
+
 
         }
     }
@@ -319,7 +336,7 @@ public abstract class Character{
     
 
     public String toString() {
-	String s = "<html>=======Stats=======";
+	String s = "<html><font size = 2>=======Stats=======";
 	s += "\n<br>Name: " + _Name;
 	s += "\n<br>Class: " + _Class;
 	s += "\n<br>Level: " + _Lvl;
@@ -338,137 +355,3 @@ public abstract class Character{
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //*********************Some older methods, may be useful********************
-
-    public int getDefense(){
-        return _Def;
-    }
-    
-    public int getEvasion(){
-        return _Evasion;
-    }
-
-    public int getLuck(){
-        return _Luck;
-    }
-
-    public int getLevel(){
-        return _Level;
-    }
-
-    public int getMP(){
-        return _MP;
-    }
-
-
-
-//Yay level up system! Does what a normal lvl up system does. Excess EXP is carried over when you lvl up.
-    public int lvlUp(){
-        if ( _CurrentExp > _NextLevelExp ){
-         _Level += 1;
-         _CurrentExp = _CurrentExp - _NextLevelExp;
-         _NextLevelExp = 100*( _Level*(4/3) );
-         statsUp();
-         System.out.print( "You have leveled up!" );
-        }
-        return _Level;
-    }
-
-//EXP gain every time a monster dies. (In this case smaug) This is put in the YoRPG class when smaug dies
-    public int expGain( Monster c ){
-        _CurrentExp += c.dropExp();
-        System.out.println("You have gained " + c.dropExp() + " EXP!");
-        lvlUp();
-        return _CurrentExp;
-    }
-    
-// //Grams gain every time a monster dies.
-//         public int gramGain ( Monster c ) {
-//         _Grams += c.dropGram();
-//         System.out.println("You have gained " + c.dropGram() + " Grams!");
-//         System.out.println("You have " + _Grams + "Grams!");
-//         return _Grams;
-//     }
-
-//     public void lowerGram ( int d ) {
-//         if (_Grams > d) {
-//             _Grams -= d;
-//             System.out.printn("You have " + _Grams + "Grams!");
-//         }
-//     }
-    
-    public boolean fleed(){
-        if ( (int) (Math.random()*_Luck + 10) < _Luck ){
-         return true; }
-        return false;
-    }
-//if random int 0 - _Luck + 10 < _luck, escape from battle. else you're stuck.
-
-
-    public void lowerHP( int d ){
-        _HP -= d;
-        System.out.println(getName()+" HP: "+_HP);
-    }
-//subtract health, does not need to return anything, could return current health though
-
-    public void gainMP( int d ) {
-        if ((_MP + d) < _MaxMP) {
-            _MP += d;
-        }
-        else {
-            _MP = _MaxMP;
-        }
-    }
-    // adds mana, does not return anything
-
-    public boolean hasHit( Character c ){
-        if (((int) (Math.random()*_Accuracy)) >= ((int) (Math.random()*c.getEvasion()))){
-         return true; }
-        return false;
-    }
-//Choses a random int from 0 to _accuracy of attacker,
-//and checks if that is greater than a random int from 0 to _evasion of the defender.
-//If it is > the attack will go through. (see attack method)
-
-
-    public void attack( Character c ){
-        if ( hasHit( c ) ) {
-         int damage = (int) ((_Attack*_AttackRating) - _TmpDef);
-         if ( damage < 0 ){
-                damage = 0;
-         }
-         c.lowerHP( damage );
-         System.out.println(c.getName()+" took "+damage+" damage."); }
-//prints the amount of damage the opposing side takes, so there is no need for this in the driver class.
-//Same for the bottom line, except the character has missed their attack and no damage is dealt.
-        else {
-         System.out.println(getName()+" has missed!");        }
-    }
-
-
-
-    public abstract String getName();
-    //get name of char if it has
-
-    public abstract void statsUp();
-    //increase stats according to char when level up.
-
-
-
-    public String tellAbout() {
-        return _About;
-    }
-
-}
