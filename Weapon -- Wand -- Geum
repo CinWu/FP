@@ -4,7 +4,7 @@ public class Geum extends Weapon {
     int _SPDBoost = 5;
     int _ACCBoost = 4;
     int _LVLReq = 35;
-    String _WeaponName = "Geum";
+    String _ItemName = "Geum";
     String _WeaponType = "Wand";
     String _WeaponClass = "Mage";
 }
