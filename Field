@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -56,6 +57,7 @@ public class Field extends Game {
 	    for( int x = 0; x < w; x++ ){
 		grid[x][y] = new JButton("("+x+","+y+")"); //creates new button
 		grid[x][y].setName(x + ", " + y );
+		//		grid[x][y].setColor( Color.orange );
 		grid[x][y].setText( "<html><font size = 1>" + x + y );
 		grid[x][y].addActionListener(new GridListener());
 		field.add(grid[x][y]); //adds button to grid
@@ -127,6 +129,21 @@ public class Field extends Game {
     //=========HELPER FUNCTIONS===========
 
     protected boolean _isCpu = false;
+    
+    public void moveHelper( Character c, int x, int y ) {
+	String oldCor = c.move( x, y );
+	int dividingLine = oldCor.indexOf(" ");
+	
+	int olX = Integer.parseInt( oldCor.substring( 0, dividingLine ) );
+	int olY = Integer.parseInt( oldCor.substring( dividingLine+1 ) );
+	
+	if ( listChar(x,y).hasMoved() ) {
+	    //Set button icons
+	    grid[olX][olY].setIcon( null );
+	    grid[x][y].setIcon( new ImageIcon( "bunny.jpeg" ) );
+	}
+    }
+		    
 
     //========RETURN VALUES OF VARIABLES AFTER TURN=======
     public void retVars() {
@@ -473,21 +490,60 @@ public class Field extends Game {
 		if ( rChoice == 0 && !rChar.hasMoved() ) {
 		    rMoveX = ( (int)(rChar.getMove()*Math.random()) );
 		    rMoveY = rChar.getMove() - rMoveX;
-		    try {
-			rChar.setXY( rChar.getPosX()+rMoveX, rChar.getPosY()+rMoveY );
+
+
+
+		    if ( rChar.getPosX() + rMoveX < grid.length 
+			 && rChar.getPosX() + rMoveX > 0
+			 && rChar.getPosY() + rMoveY < grid[0].length
+			 && rChar.getPosY() + rMoveY > 0 ) {
+
+			System.out.println( rChar.getPosX() +" "+ rMoveX  );
+			System.out.println( rChar.getPosY() +" "+ rMoveY  );
+
+			System.out.println("1");
+
+			moveHelper(rChar, rChar.getPosX()+rMoveX, rChar.getPosY() + rMoveY);
 		    }
-		    finally {
-			try {
-			    rChar.setXY( rChar.getPosX()-rMoveX, rChar.getPosY()+rMoveY );
-			}
-			finally {
-			    try {
-				rChar.setXY( rChar.getPosX()+rMoveX, rChar.getPosX()-rMoveY );
-			    }    
-			    finally {
-				rChar.setXY( rChar.getPosX()-rMoveX, rChar.getPosX()-rMoveY );
-			    }
-			}
+
+		    else if ( rChar.getPosX() - rMoveX < grid.length 
+			 && rChar.getPosX() - rMoveX > 0
+			 && rChar.getPosY() + rMoveY < grid[0].length
+			 && rChar.getPosY() + rMoveY > 0 ) {
+
+
+			System.out.println( rChar.getPosX() +" "+ rMoveX  );
+			System.out.println( rChar.getPosY() +" "+ rMoveY  );
+
+			System.out.println("2");
+
+			moveHelper(rChar, rChar.getPosX()-rMoveX, rChar.getPosY()+rMoveY);
+		    }
+
+		    else if ( rChar.getPosX() + rMoveX < grid.length 
+			 && rChar.getPosX() + rMoveX > 0
+			 && rChar.getPosY() - rMoveY < grid[0].length
+			 && rChar.getPosY() - rMoveY > 0 ) {
+
+			System.out.println( rChar.getPosX() +" "+ rMoveX  );
+			System.out.println( rChar.getPosY() +" "+ rMoveY  );
+			System.out.println("3");
+
+			moveHelper(rChar, rChar.getPosX()+rMoveX, rChar.getPosY()-rMoveY);
+		    }    
+
+		    else if ( rChar.getPosX() - rMoveX < grid.length 
+			 && rChar.getPosX() - rMoveX > 0
+			 && rChar.getPosY() - rMoveY < grid[0].length
+			 && rChar.getPosY() - rMoveY > 0 ) {
+
+
+			System.out.println( rChar.getPosX() +" "+ rMoveX  );
+			System.out.println( rChar.getPosY() +" "+ rMoveY  );
+
+			System.out.println("4");
+
+			moveHelper(rChar, rChar.getPosX()-rMoveX, rChar.getPosY()-rMoveY);
 		    }
 		}
 	
