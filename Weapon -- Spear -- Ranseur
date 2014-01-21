@@ -5,6 +5,7 @@ public class Ranseur extends Weapon {
     int _ACCBoost = -3;
     int _LVLReq = 45;
     String _WeaponName = "Ranseur";
+    String _WeaponClass = "Warrior";
     String _WeaponType = "Spear";
 }
 
