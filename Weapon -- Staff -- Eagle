@@ -4,7 +4,7 @@ public class Eagle extends Weapon {
     int _SPDBoost = -5;
     int _ACCBoost = 5;
     int _LVLReq = 50;
-    String _WeaponName = "Eagel";
+    String _ItemName = "Eagel";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
