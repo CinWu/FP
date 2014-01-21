@@ -4,7 +4,7 @@ public class Humboldt extends Weapon {
     int _SPDBoost = 7;
     int _ACCBoost = 6;
     int _LVLReq = 20;
-    String _WeaponName = "Humboldt";
+    String _ItemName = "Humboldt";
     String _WeaponClass = "Scout";
     String _WeaponType = "Bow";
 }
