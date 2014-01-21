@@ -4,7 +4,7 @@ public class Riversi extends Weapon {
     int _SPDBoost = 9;
     int _ACCBoost = 9;
     int _LVLReq = 45;
-    String _WeaponName = "Riversi";
+    String _ItemName = "Riversi";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Gloves";
 }
