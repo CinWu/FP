@@ -4,7 +4,7 @@ public class WoodenSword extends Weapon {
    int _SPDBoost = 1;
    int _ACCBoost = 0;
    int _LVLReq = 1;
-   String _WeaponName = "Wooden Sword";
+   String _ItemName = "Wooden Sword";
    String _WeaponClass = "Warrior";
    String _WeaponType = "Sword";
 }
