@@ -4,7 +4,7 @@ public class Karabela extends Weapon {
     int _SPDBoost = 5;
     int _ACCBoost = 7;
     int _LVLReq = 30;
-    String _WeaponName = "Karabela";
+    String _ItemName = "Karabela";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Sword";
 }
