@@ -4,7 +4,7 @@ public class CoralWing extends Weapon {
     int _SPDBoost = 14;
     int _ACCBoost = 0;
     int _LVLReq = 50;
-    String _WeaponName = "Coral Wing";
+    String _ItemName = "Coral Wing";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
