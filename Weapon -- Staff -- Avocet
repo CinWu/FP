@@ -4,7 +4,7 @@ public class Avocet extends Weapon {
     int _SPDBoost = -1;
     int _ACCBoost = 2;
     int _LVLReq = 10;
-    String _WeaponName = "Avocet";
+    String _ItemName = "Avocet";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
