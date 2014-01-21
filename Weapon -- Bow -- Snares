@@ -1,0 +1,13 @@
+public class Snares  extends Weapon {
+    int _ATKBoost = 19;
+    int _SPATKBoost = 6;
+    int _SPDBoost = 15;
+    int _ACCBoost = 15;
+    int _LVLReq = 45;
+    String _WeaponName = "Snares";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
+
+
+
