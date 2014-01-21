@@ -4,7 +4,6 @@ public class Weapon extends Item {
     protected int _SPDBoost;
     protected int _ACCBoost;
     protected int _LVLReq;
-    protected String _WeaponName;		
     protected String _WeaponType;
     protected String _WeaponClass;
 
@@ -26,10 +25,6 @@ public class Weapon extends Item {
 
     public int getLVLReg() {
 	return _LVLReq;
-    }
-
-    public String getWeaponName() {
-	return _WeaponName;
     }
 
     public String getWeapon() {
