@@ -6,5 +6,5 @@ public class Pipit extends Weapon {
     int _LVLReq = 25;
     String _ItemName = "Pipit";
     String _WeaponType = "Staff";
-    String _WeaponClass = "Warrior";
+    String _WeaponClass = "Mage";
 }
