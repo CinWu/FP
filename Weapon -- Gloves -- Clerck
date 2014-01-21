@@ -1,5 +1,5 @@
 public class Clerck extends Weapon {
-    int _ATKBoost = 117;
+    int _ATKBoost = 17;
     int _SPATKBoost = 17;
     int _SPDBoost = 4;
     int _ACCBoost = 4;
