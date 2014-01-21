@@ -2,4 +2,5 @@ public class MPPotions extends Potion {
   int  _HP = 0;
   int  _MP = 15;
   boolean  _Cures = false;
+   String _PotionName = "MP Potion";
 }
