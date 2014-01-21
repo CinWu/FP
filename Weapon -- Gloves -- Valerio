@@ -1,0 +1,11 @@
+public class Valerio extends Weapon {
+    int _ATKBoost = 23;
+    int _SPATKBoost = 23;
+    int _SPDBoost = 5;
+    int _ACCBoost = 5;
+    int _LVLReq = 25;
+    String _WeaponName = "Valerio";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
+
