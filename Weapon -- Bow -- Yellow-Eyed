@@ -4,7 +4,7 @@ public class Yelloweyed extends Weapon {
     int _SPDBoost = 13;
     int _ACCBoost = 12;
     int _LVLReq = 35;
-    String _WeaponName = "Yellow-Eyed";
+    String _ItemName = "Yellow-Eyed";
     String _WeaponClass = "Scout";
     String _WeaponType = "Bow";
 }
