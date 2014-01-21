@@ -4,7 +4,7 @@ public class HamHammer extends Weapon {
     int _SPDBoost = 3;
     int _ACCBoost = 3;
     int _LVLReq = 15;
-    String _WeaponName = "Ham Hammer";
+    String _ItemName = "Ham Hammer";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
