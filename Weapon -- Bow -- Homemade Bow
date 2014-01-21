@@ -2,7 +2,7 @@ public class HomemadeBow extends Weapon {
     int _ATKBoost = 4;
     int _SPATKBoost = 0;
     int _SPDBoost = 1;
-    int _ACCBoost = 0;
+    int _ACCBoost = 2;
     int _LVLReq = 1;
     String _WeaponName = "Homemade Bow";
     String _WeaponClass = "Scout";
