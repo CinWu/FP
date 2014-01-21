@@ -1,3 +1,4 @@
 public class Item {
-    //Cricket...
+    protected String _ItemName;
+    public String getItemName() { return _ItemName; }
 }
