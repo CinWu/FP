@@ -1,6 +1,6 @@
 public class Bivittatus extends Weapon {
     int _ATKBoost = 36;
-    int _SPATKBoost = 113;
+    int _SPATKBoost = 13;
     int _SPDBoost = 7;
     int _ACCBoost = 0;
     int _LVLReq = 30;
