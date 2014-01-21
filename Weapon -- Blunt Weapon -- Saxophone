@@ -4,7 +4,7 @@ public class Saxophone extends Weapon {
     int _SPDBoost = 5;
     int _ACCBoost = 5;
     int _LVLReq = 25;
-    String _WeaponName = "Saxophone";
+    String _ItemName = "Saxophone";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
