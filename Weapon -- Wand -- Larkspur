@@ -4,7 +4,7 @@ public class Larkspur extends Weapon {
     int _SPDBoost = 5;
     int _ACCBoost = 5;
     int _LVLReq = 40;
-    String _WeaponName = "Larkspur";
+    String _ItemName = "Larkspur";
     String _WeaponType = "Wand";
     String _WeaponClass = "Mage";
 }
