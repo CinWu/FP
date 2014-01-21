@@ -6,6 +6,21 @@ import java.util.ArrayList;
 
 public class Field extends Game {
 
+    //=====keep track of things
+    int turns = 0;
+    boolean playersTurn = true;
+    //==========================
+
+    //==========random computer is random
+    Character rChar;
+    int rCharI;
+    int rChoice;
+    int rAct;
+    int rMoveX;
+    int rMoveY;
+    //   boolean hasHit = false;
+    //===================================
+
     //This will be the "finished piece"
     JFrame full = new JFrame();
 
@@ -21,6 +36,7 @@ public class Field extends Game {
     JButton mov;
     JButton act;
     JButton stby;
+    JButton end;
 
     JFrame actList = new JFrame("Actions");
     JButton act1;
@@ -62,6 +78,9 @@ public class Field extends Game {
 	stby = new JButton("Standby");
 	stby.setPreferredSize(new Dimension(100,20));
 	stby.addActionListener(new ClickAction());
+	end = new JButton("End Turn");
+	end.setPreferredSize(new Dimension(100,20));
+	end.addActionListener(new ClickAction());
 
 	stats = new JButton("Stats");
 	stats.setPreferredSize(new Dimension(150,400));
@@ -70,6 +89,7 @@ public class Field extends Game {
 	actPan.add( act );
 	actPan.add( mov );
 	actPan.add( stby );
+	actPan.add( end );
 	actPan.add( stats );
 
 	full.getContentPane().add( BorderLayout.EAST, actPan );
@@ -82,16 +102,56 @@ public class Field extends Game {
 	setPos();
 
 	//               field.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	full.setSize(700,550); 
+	full.setSize(600,550); 
 	full.setVisible(true);
 	full.setResizable(false);
+	
+	while ( !isDeadP() && !isDeadC() ) {
 
+	    while ( !stbyP() && !stbyC() ) {
 
+		while ( !stbyP() ) {
+		    
+		    playersTurn = true;
+		    
+		}
+		playersTurn = false;	
+		randomize();
+	    }
+	    retVars();
+	    turns++;
+	    
+	}
+	    
     }
 
     //=========HELPER FUNCTIONS===========
 
     protected boolean _isCpu = false;
+
+    //========RETURN VALUES OF VARIABLES AFTER TURN=======
+    public void retVars() {
+	for ( int i = 0; i < cTeam.size(); i++ ) {
+	    cTeam.get(i).gainMP( cTeam.get(i)._Magic );
+	    cTeam.get(i).setStandby( false );
+	    cTeam.get(i).setMoved( false );
+	    cTeam.get(i).setUsedAct( false );
+	}
+	for ( int i = 0; i < pTeam.size(); i++ ) {
+	    pTeam.get(i).gainMP( pTeam.get(i)._Magic );
+	    pTeam.get(i).setStandby( false );
+	    pTeam.get(i).setMoved( false );
+	    pTeam.get(i).setUsedAct( false );
+	}
+
+	_ClickAct = false;
+	_WhichAct = 0;
+	_SelectMove = false;
+	_CTeamStby = false;
+	_PTeamStby = false;
+	selection = null;
+	target = null;
+    }
 
     //=========List of Teams==========
     public void addComp( Computer cpu ) {
@@ -100,6 +160,37 @@ public class Field extends Game {
 	
     public void addPlay( Player pl ) {
 	pTeam = pl.getTeam();
+    }
+
+    //=========Is team Dead?============
+    
+    public boolean isDeadC() {
+	return cTeam.size() == 0;
+    }
+
+    public boolean isDeadP() {
+	return pTeam.size() == 0;
+    }
+
+    //=========Is Team Standby?===========
+    public boolean stbyC() {
+	for ( int i = 0; i < cTeam.size(); i++ ) {
+	    if ( !(cTeam.get(i).isStandby()) )
+		return false;
+	}
+	return true;
+    }
+
+    public boolean stbyP() {
+	for ( int i = 0; i < cTeam.size(); i++ ) {
+	    if ( !(pTeam.get(i).isStandby()) )
+		return false;
+	}
+	return true;
+    }
+
+    public boolean nextTurn() {
+	return stbyP() && stbyC();
     }
 
     //===========Search for characters on a square=======
@@ -178,7 +269,8 @@ public class Field extends Game {
 	    JButton source = (JButton)event.getSource();
 	    JFrame nope;
 
-	    if ( source != act1 && source != act2 &&
+	    if ( playersTurn &&
+		 source != act1 && source != act2 &&
 		 source != act3 && source != act4 ) { 
 		//Button's x and y coordinates
 		int bx = 0;
@@ -276,25 +368,39 @@ public class Field extends Game {
 	    	_WhichAct = 2;
 		actList.dispose();
 	    }
+
 	    else if ( source.equals( act3 ) && selection != null ) {
 	    	_ClickAct = true;
 	    	selection.action3();
 		actList.dispose();
 	    }
+
 	    else if ( source.equals( act4 ) && selection != null ) {
 	    	_ClickAct = true;
 	    	selection.action4();
 		actList.dispose();
 	    }
+
 	    else if ( source.equals( mov ) 
 		      && selection != null 
-		      && !(selection.hasMoved()) ) {
+		      && !(selection.hasMoved())
+		      && !(selection.isStandby()) ) {
 	        _SelectMove = true;
 	    }
+
 	    else if ( source.equals( stby ) && selection != null ) {
 		selection.setStandby(true);
 	    }
+
+	    else if ( source.equals( end ) ) {
+		for ( int i = 0; i < pTeam.size(); i++ ) {
+		    pTeam.get(i).setStandby(true);
+		}
+		
+	    }
+	  
 	}
+
     }
 
     class ActListener implements ActionListener {
@@ -328,19 +434,82 @@ public class Field extends Game {
 		JFrame no = new JFrame("STOP!");
 		JOptionPane.showMessageDialog(no, "Cannot act more than once in a single turn.");
 		}
-	    else {
+	
+
+	    else if ( selection != null && !(selection.isStandby()) ) {
 		//MAKE SCREEN POP UP!
 		actList.setSize(200,100);
 		actList.setVisible(true);
 		actList.setResizable(false);
 		
 		act2.setText( selection.getNamu2() );
+	    
 	    }
 	}
     }
+
+    //++++++++++++++RANDOM COMPUTER IS RANDOM++++++++++++++
+    public void randomize() {
+	int max;
+	for ( int i = 0; i < cTeam.size() && max > 0 ; i++ ) {
+	    max = 30;
+	    rChar = cTeam.get(i);
+	    rChoice = (int) ( Math.random()*3 );
+	    while ( !rChar.isStandby() ) {
+		max --;
+		if ( rChoice == 0 && !rChar.hasMoved() ) {
+		    rMoveX = ( (int)(rChar.getMove()*Math.random()) );
+		    rMoveY = rChar.getMove() - rMoveX;
+		    try {
+			rChar.setXY( rChar.getPosX()+rMoveX, rChar.getPosY()+rMoveY );
+		    }
+		    finally {
+			try {
+			    rChar.setXY( rChar.getPosX()-rMoveX, rChar.getPosY()+rMoveY );
+			}
+			finally {
+			    try {
+				rChar.setXY( rChar.getPosX()+rMoveX, rChar.getPosX()-rMoveY );
+			    }    
+			    finally {
+				rChar.setXY( rChar.getPosX()-rMoveX, rChar.getPosX()-rMoveY );
+			    }
+			}
+		    }
+		}
+	
+		else if ( rChoice == 1 && !rChar.usedAction() ) {
+		    rAct = (int)(Math.random()*4);
+	    
+		    if ( rAct == 0 ) {
+			for ( int k = 0; k < pTeam.size() && !rChar.usedAction(); k++ ) {
+			    rChar.action1(pTeam.get(k));
+			}
+			rChar.setUsedAct( true );
+		    }
+		    else if ( rAct == 2 && !rChar.usedAction() ) {
+			for ( int j = 0; j < pTeam.size() && !rChar.usedAction(); j++ ) {
+			    System.out.println("2");
+			    rChar.action2(pTeam.get(j));
+			}
+			rChar.setUsedAct( true );
+		    }
+		    else if ( rAct == 3 && !rChar.usedAction()) {
+			rChar.action3();
+		    }
+		}
+		else {
+		    rChar.setStandby(true);
+		}
+		rChar.setStandby(true);
+	    }
+	}
+    }
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     public static void main ( String args[] ) {
 	Player dude = new Player();
 	Field testmap = new Field(10,10,dude);
     }
 }
-
