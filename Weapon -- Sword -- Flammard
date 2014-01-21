@@ -4,7 +4,7 @@ public class Flammard extends Weapon {
     int _SPDBoost = 12;
     int _ACCBoost = 15;
     int _LVLReq = 45;
-    String _WeaponName = "Flammard";
+    String _ItemName = "Flammard";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Sword";
 }
