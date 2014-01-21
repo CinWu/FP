@@ -1,0 +1,10 @@
+public class Keeler extends Weapon {
+    int _ATKBoost = 49;
+    int _SPATKBoost = 17;
+    int _SPDBoost = 10;
+    int _ACCBoost = 0;
+    int _LVLReq = 40;
+    String _WeaponName = "Keeler";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Knuckles";
+}
