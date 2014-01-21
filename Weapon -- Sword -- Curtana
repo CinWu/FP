@@ -4,7 +4,7 @@ public class Curtana extends Weapon {
     int _SPDBoost = 7;
     int _ACCBoost = 9;
     int _LVLReq = 40;
-    String _WeaponName = "Curtana";
+    String _ItemName = "Curtana";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Sword";   
 }
