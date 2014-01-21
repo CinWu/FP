@@ -1,0 +1,11 @@
+public class Fiordland extends Weapon {
+    int _ATKBoost = 9;
+    int _SPATKBoost = 0;
+    int _SPDBoost = 5;
+    int _ACCBoost = 1;
+    int _LVLReq = 15;
+    String _WeaponName = "Fiordland";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
+
