@@ -4,7 +4,7 @@ public class Redstart extends Weapon {
     int _SPDBoost = -3;
     int _ACCBoost = 3;
     int _LVLReq = 30;
-    String _WeaponName = "Redstart";
+    String _ItemName = "Redstart";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
