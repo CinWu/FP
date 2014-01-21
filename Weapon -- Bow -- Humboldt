@@ -1,0 +1,10 @@
+public class Humboldt extends Weapon {
+    int _ATKBoost = 11;
+    int _SPATKBoost = 2;
+    int _SPDBoost = 7;
+    int _ACCBoost = 6;
+    int _LVLReq = 20;
+    String _WeaponName = "Humboldt";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
