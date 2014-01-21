@@ -5,5 +5,6 @@ public class Katana extends Weapon {
    int _ACCBoost = 7;
    int _LVLReq = 20;
    String _WeaponName = "Katana";
+   String _WeaponClass = "Warrior";
    String _WeaponType = "Sword"; 
 }
