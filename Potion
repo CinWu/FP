@@ -2,5 +2,12 @@ public class Potion {
     protected int _HP;
     protected int _MP;
     protected boolean _Cures; // does it cure status conditions
+    protected String _PotionName;
+    
+    public int getHP() { return	_HP; }
+    public int getMP() { return _MP; }
+    public boolean getCures() {	return _Cures; }
+    public String getPotionName() { return _PotionName;	}
+
 }
 
