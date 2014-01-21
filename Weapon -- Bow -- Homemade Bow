@@ -1,4 +1,4 @@
-public class WoodenSword extends Weapon {
+public class HomemadeBow extends Weapon {
     int _ATKBoost = 4;
     int _SPATKBoost = 0;
     int _SPDBoost = 1;
