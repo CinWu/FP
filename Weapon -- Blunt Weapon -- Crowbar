@@ -4,7 +4,7 @@ public class Crowbar  extends Weapon {
     int _SPDBoost = 4;
     int _ACCBoost = 4;
     int _LVLReq = 20;
-    String _WeaponName = "Crowbar";
+    String _ItemName = "Crowbar";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
