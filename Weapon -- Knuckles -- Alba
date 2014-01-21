@@ -4,7 +4,7 @@ public class Alba extends Weapon {
     int _SPDBoost = 6;
     int _ACCBoost = 0;
     int _LVLReq = 25;
-    String _WeaponName = "Alba";
+    String _ItemName = "Alba";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
