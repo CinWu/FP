@@ -157,12 +157,15 @@ public abstract class Character{
 	ycor = y;
 
     }
-    public void move( int x, int y ) {
 
+    public String move( int x, int y ) {
+
+	System.out.println ( x+":"+ y );
+	String retStr = xcor + " " + ycor;
         int xDir = x;
         int yDir = y;
 	
-        if ( Math.abs(xDir) + Math.abs(yDir) <= _Move ) {        
+        if ( Math.abs(xDir - xcor) + Math.abs(yDir - ycor) <= _Move ) {        
 	    xcor = x;
 	    ycor = y;
 	    _HasMoved = true;
