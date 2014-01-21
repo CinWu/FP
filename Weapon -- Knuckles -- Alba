@@ -1,0 +1,11 @@
+public class Alba extends Weapon {
+    int _ATKBoost = 31;
+    int _SPATKBoost = 11;
+    int _SPDBoost = 6;
+    int _ACCBoost = 0;
+    int _LVLReq = 25;
+    String _WeaponName = "Alba";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Knuckles";
+}
+
