@@ -4,7 +4,7 @@ public class SpurThroat extends Weapon {
     int _SPDBoost = 9;
     int _ACCBoost = 0;
     int _LVLReq = 35;
-    String _WeaponName = "Spur-Throat";
+    String _ItemName = "Spur-Throat";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
