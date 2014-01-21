@@ -2,33 +2,33 @@ import java.util.ArrayList;
 
 public class Tamer extends Character{
 
-    protected ArrayList pets = new ArrayList();
+    protected ArrayList<Partner> pets = new ArrayList<Partner>();
 
 
     public Tamer() {
-        _Name = "Farmer";
-	_Class = "Tamer";
-	_MaxHP = 55 + (int) Math.random()*6;
-	_MaxMP = 25 + (int) Math.random()*6;
-	_InitATK = 12 + (int) Math.random()*6;
-	_InitDEF = 10 + (int) Math.random()*6;
-	_InitSPD =  6 + (int) Math.random()*6;
-	_InitSPATK = 5 + (int) Math.random()*6;
-	_InitSPDEF = 10 + (int) Math.random()*6;
-	_InitACC = 20 + (int) Math.random()*6;
-	_InitEVS = 12 + (int) Math.random()*6;
-	_HP = _MaxHP;
-	_MP = _MaxMP;
-	_ATK = _InitATK;
-	_DEF = _InitDEF;
-	_SPD = _InitSPD;
-	_SPATK = _InitSPATK;
-	_SPDEF = _InitSPDEF;
-	_ACC = _InitACC;
-	_EVS = _InitEVS;
-	_Move = 4;
-	_Magic = 3;
-
+        String _Name = "Farmer";
+	String _Class = "Tamer";
+	int _MaxHP = 55 + (int) Math.random()*6;
+	int _MaxMP = 25 + (int) Math.random()*6;
+	int _InitATK = 12 + (int) Math.random()*6;
+	int _InitDEF = 10 + (int) Math.random()*6;
+	int _InitSPD =  6 + (int) Math.random()*6;
+	int _InitSPATK = 5 + (int) Math.random()*6;
+	int _InitSPDEF = 10 + (int) Math.random()*6;
+	int _InitACC = 20 + (int) Math.random()*6;
+	int _InitEVS = 12 + (int) Math.random()*6;
+	int _HP = _MaxHP;
+	int _MP = _MaxMP;
+	int _ATK = _InitATK;
+	int _DEF = _InitDEF;
+	int _SPD = _InitSPD;
+	int _SPATK = _InitSPATK;
+	int _SPDEF = _InitSPDEF;
+	int _ACC = _InitACC;
+	int _EVS = _InitEVS;
+	int _Move = 4;
+	int _Magic = 3;
+	ArrayList<Partner> pets;
 
     }
 
