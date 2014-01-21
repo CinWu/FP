@@ -13,12 +13,10 @@ public class Field extends Game {
 
     //==========random computer is random
     Character rChar;
-    int rCharI;
     int rChoice;
     int rAct;
     int rMoveX;
     int rMoveY;
-    //   boolean hasHit = false;
     //===================================
 
     //This will be the "finished piece"
@@ -57,7 +55,8 @@ public class Field extends Game {
 	for( int y = 0; y < l; y++ ){
 	    for( int x = 0; x < w; x++ ){
 		grid[x][y] = new JButton("("+x+","+y+")"); //creates new button
-		grid[x][y].setName( x + ", " + y );
+		grid[x][y].setName(x + ", " + y );
+		grid[x][y].setText( "<html><font size = 1>" + x + y );
 		grid[x][y].addActionListener(new GridListener());
 		field.add(grid[x][y]); //adds button to grid
 	    }
@@ -102,7 +101,7 @@ public class Field extends Game {
 	setPos();
 
 	//               field.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	full.setSize(600,550); 
+	full.setSize(700,550); 
 	full.setVisible(true);
 	full.setResizable(false);
 	
@@ -240,13 +239,14 @@ public class Field extends Game {
     }
     
     public void setOnMapC( Character x ) {
-    	int xcoor = (int)(grid.length*.75)+(int)(Math.random()*grid.length*.25);
-    	int ycoor = (int)(grid[0].length*.75)+(int)(Math.random()*grid[0].length*.25);
-    	if ( !anyChars(xcoor,ycoor) ){
-      	    grid[xcoor][ycoor].setText("hi");
-    	    x.setXY( xcoor, ycoor ); 
-    	}
-	else { setOnMapC( x ); };
+    	int xcor = (int)(grid.length*.75)+(int)(Math.random()*grid.length*.25);
+    	int ycor = (int)(grid[0].length*.75)+(int)(Math.random()*grid[0].length*.25);
+    	if ( !anyChars(xcor,ycor) ){
+      	    grid[xcor][ycor].setText("hi");
+      	    grid[xcor][ycor].setIcon( new ImageIcon( "bunny.jpeg" ) );
+    	    x.setXY( xcor, ycor ); 
+	}
+	else { setOnMapC( x ); }
     }
 
     public void setOnMapP( Character x ) {
@@ -255,9 +255,10 @@ public class Field extends Game {
 
     	if ( !anyChars(xcor,ycor) ){
 	    grid[xcor][ycor].setText("hi");
+      	    grid[xcor][ycor].setIcon( new ImageIcon( "bunny.jpeg" ) );
     	    x.setXY( xcor, ycor ); 
     	}
-	else { setOnMapP( x ); };
+	else { setOnMapP( x ); }
     }
 
     //========================================================
@@ -304,10 +305,22 @@ public class Field extends Game {
 		    else if ( listChar( bx, by ) == null && _SelectMove ) {
 						
 			_SelectMove = false;
-			selection.move( bx, by );
+			//Find the old coords to remove image
+			//move(x,y) returns a string of the old coords in x y form 
+			String oldCor = selection.move( bx, by );
+			int dividingLine = oldCor.indexOf(" ");
+			
+			int olX = Integer.parseInt( oldCor.substring( 0, dividingLine ) );
+			int olY = Integer.parseInt( oldCor.substring( dividingLine+1 ) );
 
+			if ( listChar(bx,by).hasMoved() ) {
+			//Set button icons
+			    grid[olX][olY].setIcon( null );
+			    grid[bx][by].setIcon( new ImageIcon( "bunny.jpeg" ) );
+			}
 		    }
 		    
+
 		    //RETURN THE STATS
 		    else if ( anyChars( bx, by ) ) {
 
@@ -450,7 +463,7 @@ public class Field extends Game {
 
     //++++++++++++++RANDOM COMPUTER IS RANDOM++++++++++++++
     public void randomize() {
-	int max;
+	int max = 30;
 	for ( int i = 0; i < cTeam.size() && max > 0 ; i++ ) {
 	    max = 30;
 	    rChar = cTeam.get(i);
@@ -510,6 +523,6 @@ public class Field extends Game {
 
     public static void main ( String args[] ) {
 	Player dude = new Player();
-	Field testmap = new Field(10,10,dude);
+	Field testmap = new Field(25,25,dude);
     }
 }
