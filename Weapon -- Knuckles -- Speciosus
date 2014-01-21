@@ -4,7 +4,7 @@ public class Speciosus extends Weapon {
     int _SPDBoost = 4;
     int _ACCBoost = 0;
     int _LVLReq = 20;
-    String _WeaponName = "Speciosus";
+    String _ItemName = "Speciosus";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
