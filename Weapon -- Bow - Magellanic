@@ -1,0 +1,13 @@
+public class Magellanic extends Weapon {
+    int _ATKBoost = 15;
+    int _SPATKBoost = 4;
+    int _SPDBoost = 11;
+    int _ACCBoost = 10;
+    int _LVLReq = 30;
+    String _WeaponName = "Magellanic";
+    String _WeaponClass = "Scout";
+    String _WeaponType = "Bow";
+}
+
+
+
