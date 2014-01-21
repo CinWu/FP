@@ -4,7 +4,7 @@ public class Oriole extends Weapon {
     int _SPDBoost = -4;
     int _ACCBoost = 4;
     int _LVLReq = 40;
-    String _WeaponName = "Oriole";
+    String _ItemName = "Oriole";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
