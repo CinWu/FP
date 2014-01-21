@@ -4,7 +4,7 @@ public class Keeler extends Weapon {
     int _SPDBoost = 10;
     int _ACCBoost = 0;
     int _LVLReq = 40;
-    String _WeaponName = "Keeler";
+    String _ItemName = "Keeler";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
