@@ -1,0 +1,10 @@
+public class Trifolium extends Weapon {
+    int _ATKBoost = 31;
+    int _SPATKBoost = 31;
+    int _SPDBoost = 7;
+    int _ACCBoost = 7;
+    int _LVLReq = 35;
+    String _WeaponName = "Trifolium";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
