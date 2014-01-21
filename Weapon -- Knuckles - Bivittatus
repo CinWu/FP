@@ -4,7 +4,7 @@ public class Bivittatus extends Weapon {
     int _SPDBoost = 7;
     int _ACCBoost = 0;
     int _LVLReq = 30;
-    String _WeaponName = "Bivittatus";
+    String _ItemName = "Bivittatus";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
