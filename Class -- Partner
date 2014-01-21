@@ -1,0 +1,11 @@
+public class Partner extends Character { //It's not really a Character, but it makes things a lot easier.
+
+    protected String _PartnerType;
+    protected int _Friendship;
+
+    // accessor methods                                                              
+    public String getPartnerType() { return _PartnerType; }
+    public int getFriendshipP() { return _Friendship; }
+
+}
+
