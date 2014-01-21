@@ -4,7 +4,7 @@ public class Branch extends Weapon {
     int _SPDBoost = 0;
     int _ACCBoost = 1;
     int _LVLReq = 1;
-    String _WeaponName = "Branch";
+    String _ItemName = "Branch";
     String _WeaponType = "Staff";
     String _WeaponClass = "Mage";
 }
