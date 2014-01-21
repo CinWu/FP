@@ -4,7 +4,7 @@ public class Gentoo extends Weapon {
     int _SPDBoost = 9;
     int _ACCBoost = 8;
     int _LVLReq = 25;
-    String _WeaponName = "Gentoo";
+    String _ItemName = "Gentoo";
     String _WeaponClass = "Scout";
     String _WeaponType = "Bow";
 }
