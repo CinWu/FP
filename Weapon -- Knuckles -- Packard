@@ -4,7 +4,7 @@ public class Packard extends Weapon {
     int _SPDBoost = 12;
     int _ACCBoost = 0;
     int _LVLReq = 45;
-    String _WeaponName = "Packard";
+    String _ItemName = "Packard";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Knuckles";
 }
