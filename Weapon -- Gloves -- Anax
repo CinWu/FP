@@ -1,0 +1,10 @@
+public class Anax extends Weapon {
+    int _ATKBoost = 9;
+    int _SPATKBoost = 9;
+    int _SPDBoost = 2;
+    int _ACCBoost = 2;
+    int _LVLReq = 10;
+    String _WeaponName = "Anax";
+    String _WeaponClass = "Cestus";
+    String _WeaponType = "Gloves";
+}
