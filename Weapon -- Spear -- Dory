@@ -4,7 +4,7 @@ public class Dory extends Weapon {
     int _SPDBoost = 0;
     int _ACCBoost = 1;
     int _LVLReq = 10;
-    String _WeaponName = "Dory";
+    String _ItemName = "Dory";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Spear";
 }
