@@ -4,7 +4,7 @@ public class MetalPipe extends Weapon {
     int _SPDBoost = 2;
     int _ACCBoost = 2;
     int _LVLReq = 10;
-    String _WeaponName = "Metal Pipe";
+    String _ItemName = "Metal Pipe";
     String _WeaponClass = "Warrior";
     String _WeaponType = "Blunt Weapon";
 }
