@@ -4,7 +4,7 @@ public class Giebel extends Weapon {
     int _SPDBoost = 3;
     int _ACCBoost = 3;
     int _LVLReq = 15;
-    String _WeaponName = "Giebel";
+    String _ItemName = "Giebel";
     String _WeaponClass = "Cestus";
     String _WeaponType = "Gloves";
 }
