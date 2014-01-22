@@ -198,6 +198,8 @@ public abstract class Character{
 	gainSPDEF(5);
 	_UsedAction = true;
     }
+    
+    
     /* public void action4() {
 	int i = _Inventory.size();
 	if ( i == 0 ) {
@@ -212,6 +214,20 @@ public abstract class Character{
 	    _UsedAction = true;
 	}
     } */
+    
+    
+    public boolean itemEquals( String s, Item i ) {
+        return (s.equals(i.getItemName()));
+    }
+
+    public void usePotion( Potion p ) {
+        gainHP(p.getHP());
+        gainMP(p.getMP());
+        if (getCures()) {
+            normalize();
+        }
+        _Inventory.remove(p);
+    }
             public void action4() {
             int i = _Inventory.size();
 
@@ -226,11 +242,28 @@ public abstract class Character{
 
                     System.out.println( _Inventory.get(r) );
                 }
-                String s = keyboard.readLine();
-                while (!((s.equals(
+                               String s = readString();
+                if ((_Inventory.indexOf(s)) == -1) {
+                    System.out.println("You don't have this item!");
+                    System.out.println("Try again");
+                    action4();
+                }
+
+                else if (!((itemEquals( s , HPPotion)) || (itemEquals(s, MPPotion)) ||
+                         (itemEquals(s, StatCure)))) {
+                    System.out.println("That's not useable in battle! Put it away!");
+                    System.out.println("Choose something else");
+                    action4();
+                }
+
+                else {
+
+                    usePotion( (indexOf(s)));
+                }
+            }
+        }
 
 
-                try { o = in.readLine(
 
                 _UsedAction = true;
             }
