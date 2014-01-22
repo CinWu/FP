@@ -1,4 +1,4 @@
-public class Potion {
+public class Potion extends Items {
     protected int _HP;
     protected int _MP;
     protected boolean _Cures; // does it cure status conditions
@@ -7,7 +7,6 @@ public class Potion {
     public int getHP() { return	_HP; }
     public int getMP() { return _MP; }
     public boolean getCures() {	return _Cures; }
-    public String getPotionName() { return _PotionName;	}
 
 }
 
