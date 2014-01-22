@@ -421,6 +421,27 @@ public abstract class Character{
             return retStr;
         }
     
+    
+    public void weaponEquip( Weapon w ) { 
+    System.out.println( "Pick your poison(weapon)!");
+    System.out.println( "These are your weapon: " );
+    for ( int i = 0; i < _Inventory.size()-1; i++ ) {
+	if ((((_Inventory.get(i)).getWeaponType()).equals("Gloves")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Knuckles")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Spear")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Blunt Weapon")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Sword")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Staff")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Wand")) ||
+	    (((_Inventory.get(i)).getWeaponType()).equals("Bow"))) {
+	    
+	    System.out.println( _Inventory.get(i) );
+	}
+    }
+    
+    readString();
+    String s = readString();
+    
 
     public String toString() {
 	String s = "<html><font size = 2>=======Stats=======";
