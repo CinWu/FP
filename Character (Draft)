@@ -34,6 +34,10 @@ public abstract class Character{
     protected int _HPPots;
     protected int _MPPots;
     protected int _StatCures;
+    
+    protected Weapon _Weapon;
+    protected Armor _Armor;
+    
     protected ArrayList<Object> _Inventory = new ArrayList<Object>();
 
     protected int _Move;
