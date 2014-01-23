@@ -1,0 +1,12 @@
+public class PlainRobes extends Armor {
+
+    int _DEFBoost = 1;
+    int _SPDEFBoost = 3;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq	= 1;
+    String _ItemName = "Plain Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
+
