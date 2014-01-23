@@ -1,0 +1,11 @@
+public class AzureRobes extends Armor {
+
+    int _DEFBoost = 4;
+    int _SPDEFBoost = 13;
+    int _SPDBoost = 5;
+    int _EVSBoost = 5;
+    int _LEVReq= 15;
+    String _ItemName = "Azure Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
