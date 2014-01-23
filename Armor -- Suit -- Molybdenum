@@ -1,0 +1,11 @@
+public class MolybdenumSuit extends Armor {
+
+    int _DEFBoost = 54;
+    int _SPDEFBoost = 31;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq = 40;
+    String _ItemName = "Molybdenum Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
