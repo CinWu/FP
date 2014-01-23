@@ -1,0 +1,13 @@
+public class ChromiumSuit extends Armor {
+
+    int _DEFBoost = 23;
+    int _SPDEFBoost = 11;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 15;
+    String _ItemName = "Chromium Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
+
