@@ -1,0 +1,11 @@
+public class GlaucousRobes extends Armor {
+
+    int _DEFBoost = 8;
+    int _SPDEFBoost = 39;
+    int _SPDBoost = 8;
+    int _EVSBoost = 8;
+    int _LEVReq= 35;
+    String _ItemName = "Glaucous Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
