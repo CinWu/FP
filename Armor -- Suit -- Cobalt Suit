@@ -1,0 +1,11 @@
+public class CobaltSuit extends Armor {
+
+    int _DEFBoost = 30;
+    int _SPDEFBoost = 15;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 20;
+    String _ItemName = "Cobalt Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
