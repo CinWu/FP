@@ -1,9 +1,19 @@
 public class Terrain extends Field {
- 
-    protected String _Name;
-    protected String _Image;
 
     public String getName() {
 	return _Name;
     }
+    
+    public void convertWater( JButton j, int x, int y ) {
+    	grid[x][y].setColor(Color.blue);
+    	grid[x][y].setName("Terrain");
+    }
+
+
+//ADD MOUNTAIN TEXTURE    
+    public void convertMountains( JButton j, int x, int y ) {
+    	grid[x][y].setIcon( new ImageIcon("") );
+    	grid[x][y].setName("Terrain");
+    }
+    
 }
