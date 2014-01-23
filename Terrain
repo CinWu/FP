@@ -1,0 +1,9 @@
+public class Terrain extends Field {
+ 
+    protected String _Name;
+    protected String _Image;
+
+    public String getName() {
+	return _Name;
+    }
+}
