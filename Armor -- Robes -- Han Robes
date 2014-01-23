@@ -1,0 +1,14 @@
+public class HanRobes extends Armor {
+
+    int _DEFBoost = 9;
+    int _SPDEFBoost = 46;
+    int _SPDBoost = 9;
+    int _EVSBoost = 9;
+    int _LEVReq= 40;
+    String _ItemName = "Han Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
+
+
+
