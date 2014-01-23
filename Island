@@ -1,0 +1,17 @@
+public Island extends Field {
+  
+  public Island() {
+    
+    Field island = new Field( 25, 25, p );
+    
+    for ( int x = 0; x < 25; x++ ) {
+      convertWater(grid[x][0]);
+      convertWater(grid[x][25]);
+    }
+      
+    for ( int y = 0; y < 25; y++ ) {
+      convertWater(grid[0][y]);
+      convertWater(grid[25][0]);
+    }
+  }  
+}
