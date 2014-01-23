@@ -1,0 +1,12 @@
+public class GambogeRobes extends Armor {
+
+    int _DEFBoost = 7;
+    int _SPDEFBoost = 32;
+    int _SPDBoost = 7;
+    int _EVSBoost = 7;
+    int _LEVReq= 30;
+    String _ItemName = "Gamboge Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
+
