@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -186,6 +185,19 @@ public class Field extends Game {
 
     public boolean isDeadP() {
 	return pTeam.size() == 0;
+    }
+
+    public void dispose( Character c ) {
+	for ( int i = 0; i < cTeam.size() || i < pTeam.size(); i++ ) {
+	    if ( i < cTeam.size() && cTeam.get(i).equals( c ) ) {
+		cTeam.remove(i);
+		grid[cTeam.get(i).getPosX()][cTeam.get(i).getPosY()].setIcon(null) ;
+	    }
+	    else if ( i < pTeam.size() && pTeam.get(i).equals( c ) ) {
+		pTeam.remove(i);
+		grid[pTeam.get(i).getPosX()][pTeam.get(i).getPosY()].setIcon(null) ;
+	    }
+	}
     }
 
     //=========Is Team Standby?===========
