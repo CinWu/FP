@@ -1,0 +1,11 @@
+public class CielRobes extends Armor {
+
+    int _DEFBoost = 6;
+    int _SPDEFBoost = 25;
+    int _SPDBoost = 6;
+    int _EVSBoost = 6;
+    int _LEVReq= 25;
+    String _ItemName = "Ciel Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
