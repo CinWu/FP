@@ -1,0 +1,12 @@
+public class TatteredCape extends Armor {
+
+    int _DEFBoost = 4;
+    int _SPDEFBoost = 4;
+    int _SPDBoost = 8;
+    int _EVSBoost = 8;
+    int _LEVReq = 1;
+    String _ItemName = "Tattered Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
