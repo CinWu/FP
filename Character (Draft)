@@ -242,7 +242,8 @@ public abstract class Character{
 
                     System.out.println( _Inventory.get(r) );
                 }
-                               String s = readString();
+                               String s = Keyboard.readString();
+                               Keyboard.readString();
                 if ((_Inventory.indexOf(s)) == -1) {
                     System.out.println("You don't have this item!");
                     System.out.println("Try again");
@@ -420,7 +421,13 @@ public abstract class Character{
             _Move = _InitMove;
             return retStr;
         }
-    
+        
+    public void weaponSwap( Weapon w ) {
+    _Inventory.add(_Weapon);
+    _Weapon = w;
+    _Inventory.remove(w);
+}
+
     
     public void weaponEquip( Weapon w ) { 
     System.out.println( "Pick your poison(weapon)!");
@@ -435,13 +442,51 @@ public abstract class Character{
 	    (((_Inventory.get(i)).getWeaponType()).equals("Wand")) ||
 	    (((_Inventory.get(i)).getWeaponType()).equals("Bow"))) {
 	    
-	    System.out.println( _Inventory.get(i) );
-	}
+	       weaponName.add((_Inventory.get(i)).getWeaponName());
+            weapon.add(Inventory.get(i));
+        }
+        System.out.println(weaponName);
     }
-    
-    readString();
-    String s = readString();
-    
+
+    String s = Keyboard.readString();
+    Keyboard.readString();
+    int x = _Inventory.indexOf(s);
+    if ( x > -1 ) {
+        if (!((x.getWeaponClass()).equals(_Class))) {
+            System.out.println( "You can't use that weapon. " );
+            System.out.println( "Choose a weapon of your class type." );
+            weaponEquip();
+        }
+        else if (x.getLVLReq() > _Lvl) {
+            System.out.println( "This weapon is too high of a level for you" );
+            System.out.println( "Choose a weapon rqual to or lower than your level" );
+            weaponEquip();
+        }
+               else {
+            weaponSwap(x);
+        }
+    }
+    else  {
+        System.out.println( "You don't have that weapon." );
+        System.out.println( "Choose a weapon in your inventory" );
+        weaponEquip();
+    }
+}
+
+    public void armorEquip() {
+    System.out.println( "Suit up for battle!");
+    System.out.println( "These are your armors: " );
+    ArrayList<String> armorName = new ArrayList<String>();
+    ArrayList<Armor> armor = new ArrayList<Armor>();
+    for ( int i = 0; i < _Inventory.size()-1; i++ ) {
+        if ((((_Inventory.get(i)).getWeaponType()).equals("Suit")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Roes")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Spear")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Blunt Weapon")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Sword")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Staff")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Wand")) ||
+            (((_Inventory.get(i)).getWeaponType()).equals("Bow"))) {
 
     public String toString() {
 	String s = "<html><font size = 2>=======Stats=======";
