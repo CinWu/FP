@@ -1,0 +1,12 @@
+public class TungstenSuit extends Armor {
+
+    int _DEFBoost = 48;
+    int _SPDEFBoost = 27;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 35;
+    String _ItemName = "Tungsten Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
