@@ -1,0 +1,13 @@
+public class GoldSuit extends Armor {
+
+    int _DEFBoost = 67;
+    int _SPDEFBoost = 40;
+    int _SPDBoost = 0;
+    int _EVSBoost = 0;
+    int _LEVReq = 50;
+    String _ItemName = "Gold Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
+
