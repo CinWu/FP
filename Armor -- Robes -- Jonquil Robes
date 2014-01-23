@@ -1,0 +1,11 @@
+public class JonquilRobes extends Armor {
+
+    int _DEFBoost = 10;
+    int _SPDEFBoost = 53;
+    int _SPDBoost = 10;
+    int _EVSBoost = 10;
+    int _LEVReq= 45;
+    String _ItemName = "Jonquil Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
