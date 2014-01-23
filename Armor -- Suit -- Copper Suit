@@ -1,0 +1,14 @@
+public class CopperSuit extends Armor {
+
+    int _DEFBoost = 36;
+    int _SPDEFBoost = 19;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 25;
+    String _ItemName = "Copper Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
+
+
