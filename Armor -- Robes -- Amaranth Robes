@@ -1,0 +1,12 @@
+public class AmaranthRobes extends Armor {
+
+    int _DEFBoost = 2;
+    int _SPDEFBoost = 8;
+    int _SPDBoost = 4;
+    int _EVSBoost = 4;
+    int _LEVReq= 10;
+    String _ItemName = "Amaranth Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
+
