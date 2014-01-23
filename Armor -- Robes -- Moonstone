@@ -1,0 +1,11 @@
+public class MoonstoneRobes extends Armor {
+
+    int _DEFBoost = 12;
+    int _SPDEFBoost = 60;
+    int _SPDBoost = 12;
+    int _EVSBoost = 12;
+    int _LEVReq= 50;
+    String _ItemName = "Moonstone Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
