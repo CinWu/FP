@@ -1,0 +1,11 @@
+public class CarmineRobes extends Armor {
+
+    int _DEFBoost = 5;
+    int _SPDEFBoost = 18;
+    int _SPDBoost = 6;
+    int _EVSBoost = 6;
+    int _LEVReq= 20;
+    String _ItemName = "Carmine Robes";
+    String _ArmorType = "Robes";
+    String _ArmorClass = "Mage";
+}
