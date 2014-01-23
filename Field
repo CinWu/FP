@@ -57,7 +57,7 @@ public class Field extends Game {
 		grid[x][y] = new JButton("("+x+","+y+")"); //creates new button
 		grid[x][y].setName(x + ", " + y );
 		//		grid[x][y].setColor( Color.orange );
-		grid[x][y].setText( "<html><font size = 1>" + x + y );
+		grid[x][y].setText( "" );
 		grid[x][y].addActionListener(new GridListener());
 		field.add(grid[x][y]); //adds button to grid
 	    }
