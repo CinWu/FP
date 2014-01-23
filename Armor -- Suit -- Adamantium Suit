@@ -1,0 +1,12 @@
+public class AdamantiumSuit extends Armor {
+
+    int _DEFBoost = 16;
+    int _SPDEFBoost = 7;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 10;
+    String _ItemName = "Adamantium Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
