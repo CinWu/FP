@@ -142,6 +142,66 @@ public class Field extends Game {
 	    grid[x][y].setIcon( new ImageIcon( "bunny.jpeg" ) );
 	}
     }
+    
+    public void steps( Character c, int x, int y ) {
+	int dispX = x - c.getPosX();
+	int dispY = y - c.getPosY();
+	int disp = Math.abs(dispX) + Math.abs(dispY);
+	if ( !c.hasMoved() && disp <= c.getMove() ) {
+	    while ( disp > 0 ) {
+		System.out.println(dispX + ":" +dispY+ ":" + disp);
+		while ( Math.abs(dispX) > 0 ) {
+		    if ( dispX > 0 
+			 &&
+			 //+++++++++++++++++++++++++++DO FOR ALLL
+
+			 !( grid[c.getPosX()+1][c.getPosY()].getText()
+			    .equals("Water") ) ){
+
+			//++++++++++++++++++++THIS PART
+			moveHelper( c, ( c.getPosX()+1 ),
+				    ( c.getPosY() ) );
+			dispX--;
+		    }
+		    else if ( dispX < 0 
+			      &&
+			      !( grid[c.getPosX()-1][c.getPosY()] 
+				 .equals(Terrain.getName()) )
+			      ) {
+			moveHelper( c, ( c.getPosX()-1 ),
+				    ( c.getPosY() ) );
+			dispX++;
+		    }
+		    System.out.println("Do this stuff");
+		    try { Thread.currentThread().sleep(3000); }
+		    catch ( Exception e ) { }
+		    System.out.println("Now do everything after this");
+		}		
+		while ( Math.abs(dispY) > 0 ) {
+		    if ( dispY > 0 
+			 &&
+			 !( grid[c.getPosX()][c.getPosY()+1] 
+			    .equals(Terrain.getName()) )
+			 ) {
+			moveHelper( c, ( c.getPosX() ),
+				    ( c.getPosY()+1 ) );
+			dispY--;
+		    }
+		    else if ( dispY < 0 
+			      &&
+			      !( grid[c.getPosX()][c.getPosY()-1] 
+				 .equals(Terrain.getName()) )
+			      ) {
+			moveHelper( c, ( c.getPosX() ),
+				    ( c.getPosY()-1 ) );
+			dispY++;
+		    }
+		}
+		disp = Math.abs(dispX) + Math.abs(dispY);
+	    }
+	    c.setMoved(true);
+	}
+    }
 		    
 
     //========RETURN VALUES OF VARIABLES AFTER TURN=======
