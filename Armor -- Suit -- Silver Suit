@@ -1,0 +1,12 @@
+public class SilverSuit extends Armor {
+
+    int _DEFBoost = 60;
+    int _SPDEFBoost = 35;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq = 45;
+    String _ItemName = "Silver Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
