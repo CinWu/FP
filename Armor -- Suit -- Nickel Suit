@@ -1,0 +1,12 @@
+public class NickelSuit extends Armor {
+
+    int _DEFBoost = 42;
+    int _SPDEFBoost = 23;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 30;
+    String _ItemName = "Nickel Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
