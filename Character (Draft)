@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
 
-public abstract class Character{
+public abstract class Character implements Serializable {
 
     protected String _Name;
     protected String _Class;
@@ -506,5 +506,5 @@ public abstract class Character{
 	s += "\n<br>===================\n\n</html>";
 	return s;
     }
+    
 }
-
