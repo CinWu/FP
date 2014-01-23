@@ -1,0 +1,53 @@
+import java.io.*;
+
+public class Saver {
+    public static void main( String[] args ) {
+        Character member1 = new Character();
+	Character member2 = new Character();
+	Character member3 = new Character();
+	Character member4 = new Character();
+	Character member5 = new Character();
+	Character member6 = new Character();
+	
+	try {
+	    ObjectOutStream os =  new ObjectOutputStream( new FileOutputStream ( "Game.ser" ) );
+	    os.writeObject( member1 );
+	    os.writeObject( member2 );
+	    os.writeObject( member3 );
+	    os.writeObject( member4 );
+	    os.writeObject( member5 );
+	    os.writeObject( member6 );
+	    os.close();
+	catch (Exception ex) {
+	    System.out.println("There exists an error! Tracing back...");
+	    ex.printStackTrace();
+	}
+	    member1 = null;
+	    member2 = null;
+	    member3 = null;
+	    member4 = null;
+	    member5 = null;
+	    member6 = null;
+	}
+
+	try { 
+	    ObjectInputStream is = new ObjectInputStream( new FileInputStream( "Game.ser" ) );
+	    Object member1Restore = (Character) is.readObject();
+	    Object member2Restore = (Character) is.readObject();
+	    Object member3Restore = (Character) is.readObject();
+	    Object member4Restore = (Character) is.readObject();
+	    Object member5Restore = (Character) is.readObject();	    
+	    Object member6Restore = (Character) is.readObject();
+
+	    Character member1 = (Character) member1Restore;
+	    Character member2 = (Character) member2Restore;
+	    Character member3 = (Character) member3Restore;
+	    Character member4 = (Character) member4Restore;
+	    Character member5 = (Character) member5Restore;
+	    Character member6 = (Character) member6Restore;
+	
+	    is.close();
+	    
+	}
+	catch( Exception ex ) {
+	    
