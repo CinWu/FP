@@ -1,0 +1,14 @@
+public class PlatedSuit extends Armor {
+
+    int _DEFBoost = 10;
+    int _SPDEFBoost = 4;
+    int _SPDBoost = 1;
+    int _EVSBoost = 1;
+    int _LEVReq= 1;
+    String _ItemName = "Plated Suit";
+    String _ArmorType = "Suit";
+    String _ArmorClass = "Warrior";
+}
+
+
+
