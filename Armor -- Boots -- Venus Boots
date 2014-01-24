@@ -1,0 +1,12 @@
+public class VenusBoots extends Armor {
+
+    int _DEFBoost = 35;
+    int _SPDEFBoost = 35;
+    int _SPDBoost = 35;
+    int _EVSBoost = 35;
+    int _LEVReq = 40;
+    String _ItemName = "Venus Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
