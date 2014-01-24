@@ -1,0 +1,13 @@
+public class EarthBoots extends Armor {
+
+    int _DEFBoost = 30;
+    int _SPDEFBoost = 30;
+    int _SPDBoost = 30;
+    int _EVSBoost = 30;
+    int _LEVReq = 35;
+    String _ItemName = "Earth Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
+
