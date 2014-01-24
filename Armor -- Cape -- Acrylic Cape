@@ -1,0 +1,12 @@
+public class AcrylicCape extends Armor {
+
+    int _DEFBoost = 8;
+    int _SPDEFBoost = 8;
+    int _SPDBoost = 23;
+    int _EVSBoost = 23;
+    int _LEVReq = 20;
+    String _ItemName = "Acrylic Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
