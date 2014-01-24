@@ -141,7 +141,7 @@ public class Field extends Game {
         int olY = Integer.parseInt( oldCor.substring( dividingLine+1 ) );
         
 	    //Set button icons
-	if ( selection.hasMoved() ) { 
+	if ( c.hasMoved() ) { 
 	    grid[olX][olY].setIcon( null );
 	    grid[x][y].setIcon( new ImageIcon( "Char.jpg" ) );
 	}
