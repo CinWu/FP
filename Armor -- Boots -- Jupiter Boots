@@ -1,0 +1,14 @@
+public class JupiterBoots extends Armor {
+
+    int _DEFBoost = 20;
+    int _SPDEFBoost = 20;
+    int _SPDBoost = 20;
+    int _EVSBoost = 20;
+    int _LEVReq = 25;
+    String _ItemName = "Jupiter Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
+
+
