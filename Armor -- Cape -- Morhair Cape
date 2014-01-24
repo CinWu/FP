@@ -1,0 +1,14 @@
+public class MorhairCape extends Armor {
+
+    int _DEFBoost = 25;
+    int _SPDEFBoost = 25;
+    int _SPDBoost = 48;
+    int _EVSBoost = 48;
+    int _LEVReq = 45;
+    String _ItemName = "Morhair Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
+
+
