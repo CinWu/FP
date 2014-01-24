@@ -223,7 +223,7 @@ public abstract class Character implements Serializable {
     public void usePotion( Potion p ) {
         gainHP(p.getHP());
         gainMP(p.getMP());
-        if (getCures()) {
+        if (p.getCures()) {
             normalize();
         }
         _Inventory.remove(p);
@@ -459,7 +459,7 @@ public abstract class Character implements Serializable {
         }
         else if (x.getLVLReq() > _Lvl) {
             System.out.println( "This weapon is too high of a level for you" );
-            System.out.println( "Choose a weapon rqual to or lower than your level" );
+            System.out.println( "Choose a weapon equal to or lower than your level" );
             weaponEquip();
         }
                else {
@@ -472,21 +472,60 @@ public abstract class Character implements Serializable {
         weaponEquip();
     }
 }
+public void armorSwap( Armor a ) {
+        _Inventory.add(_Armor);
+        _Armor = a;
+        _Inventory.remove(a);
+    }
 
     public void armorEquip() {
-    System.out.println( "Suit up for battle!");
-    System.out.println( "These are your armors: " );
-    ArrayList<String> armorName = new ArrayList<String>();
-    ArrayList<Armor> armor = new ArrayList<Armor>();
-    for ( int i = 0; i < _Inventory.size()-1; i++ ) {
-        if ((((_Inventory.get(i)).getWeaponType()).equals("Suit")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Roes")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Spear")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Blunt Weapon")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Sword")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Staff")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Wand")) ||
-            (((_Inventory.get(i)).getWeaponType()).equals("Bow"))) {
+        System.out.println( "Suit up for battle!");
+        System.out.println( "These are your armors: " );
+        ArrayList<String> armorName = new ArrayList<String>();
+        ArrayList<Armor> armor = new ArrayList<Armor>();
+        for ( int i = 0; i < _Inventory.size()-1; i++ ) {
+            if ((((_Inventory.get(i)).getArmorType()).equals("Boot
+")) ||
+                (((_Inventory.get(i)).getArmorType()).equals("Suit
+")) ||
+                (((_Inventory.get(i)).getArmorType()).equals("Robe
+s")) ||
+                (((_Inventory.get(i)).getArmorType()).equals("Cape
+"))) {
+                ArmorName.add((_Inventory.get(i)).getArmorName());
+            armor.add(Inventory.get(i));
+        }
+        System.out.println(armorName);
+    }
+
+    String t = Keyboard.readString();
+    Keyboard.readString();
+    int x = _Inventory.indexOf(t);
+    if ( x > -1 ) {
+        if (!((x.getArmorClass()).equals(_Class))) {
+            System.out.println( "You can't equp that armor. " );
+            System.out.println( "Choose a armor of your class type\
+." );
+            armorEquip();
+        }
+else if (x.getLVLReq() > _Lvl) {
+            System.out.println( "This armor is too high of a \     
+level for you" );
+            System.out.println( "Choose a armor equal to or lower \
+than your level" );
+            armorEquip();
+        }
+        else {
+            armorSwap(x);
+        }
+    }
+    else  {
+        System.out.println( "You don't have that armor." );
+        System.out.println( "Choose armor in your inventory" );
+        armorEquip();
+    }
+}
+
 
     public String toString() {
 	String s = "<html><font size = 2>=======Stats=======";
