@@ -1,12 +1,12 @@
-public class FighterBandages extends Armor {
+public class PlutoBoots extends Armor {
 
     int _DEFBoost = 3;
     int _SPDEFBoost = 3;
     int _SPDBoost = 3;
     int _EVSBoost = 3;
     int _LEVReq = 1;
-    String _ItemName = "Fighter Bandages";
-    String _ArmorType = "Fighter Wear";
+    String _ItemName = "Pluto Boots";
+    String _ArmorType = "Boots";
     String _ArmorClass = "Cestus";
 }
 
