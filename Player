@@ -205,6 +205,10 @@ public class Player extends Game{
 	System.out.println( choices );
 	return choices;
     }
+    
+    public ArrayList<Character> getTeam() {
+	return teemo;
+    }
 
     public String toString() {
 	String team = "";
