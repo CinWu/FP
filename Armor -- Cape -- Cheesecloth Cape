@@ -1,0 +1,12 @@
+public class CheeseclothCape extends Armor {
+
+    int _DEFBoost = 7;
+    int _SPDEFBoost = 7;
+    int _SPDBoost = 30;
+    int _EVSBoost = 30;
+    int _LEVReq = 25;
+    String _ItemName = "Cheesecloth Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
