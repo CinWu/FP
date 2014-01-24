@@ -1,0 +1,11 @@
+public class HempCape extends Armor {
+
+    int _DEFBoost = 10;
+    int _SPDEFBoost = 10;
+    int _SPDBoost = 34;
+    int _EVSBoost = 34;
+    int _LEVReq = 30;
+    String _ItemName = "Hemp Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
