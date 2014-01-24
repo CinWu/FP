@@ -1,0 +1,23 @@
+import java.io.*;
+public class Save {
+
+    FileOutputStream fileStream = new FileOutputStream ( "Game.ser" );
+    ObjectOutputStream os = new ObjectOutputStream( fileStream );
+    protected Character temp;
+    protected String name;
+
+    public void saving (Character c) {
+        try {
+        os.writeObject(c);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        os.close();
+        }
+        temp = c;
+        name = c.getName();
+    }
+    public Character getTemp() { return temp; }
+    public String getName2() { return name; }
+
+}
