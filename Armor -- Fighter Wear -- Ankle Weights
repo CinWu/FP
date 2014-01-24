@@ -1,0 +1,12 @@
+public class AnkleWeights extends Armor {
+
+    int _DEFBoost = 8;
+    int _SPDEFBoost = 8;
+    int _SPDBoost = 8;
+    int _EVSBoost = 8;
+    int _LEVReq = 10;
+    String _ItemName = "Ankle Weights";
+    String _ArmorType = "Fighter Wear";
+    String _ArmorClass = "Cestus";
+}
+
