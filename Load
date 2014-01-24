@@ -1,0 +1,20 @@
+// Not 100% functional yet
+import java.io.*;
+
+public class Load {
+
+    FileInputStream fileStream2 = new FileInputStream( "Game.ser" );
+    ObjectInputStream is = new ObjectInputStream(fileStream2);
+    public void loading( Save s ) {
+        try {
+            (Object) s.getTemp() = is.readObject;
+            Object x = (Object) s.getTemp();
+            (Character) (s.getName2()) = (Character) x;
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            is.close();
+        }
+    }
+}
+
