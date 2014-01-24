@@ -1,0 +1,14 @@
+public class MercuryBoots extends Armor {
+
+    int _DEFBoost = 40;
+    int _SPDEFBoost = 40;
+    int _SPDBoost = 40;
+    int _EVSBoost = 40;
+    int _LEVReq = 45;
+    String _ItemName = "Mercury Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
+
+
