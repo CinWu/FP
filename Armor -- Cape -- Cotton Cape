@@ -1,0 +1,11 @@
+public class CottonCape extends Armor {
+
+    int _DEFBoost = 5;
+    int _SPDEFBoost = 5;
+    int _SPDBoost = 13;
+    int _EVSBoost = 13;
+    int _LEVReq = 10;
+    String _ItemName = "Cotton Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
