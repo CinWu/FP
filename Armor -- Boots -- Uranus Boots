@@ -3,7 +3,7 @@ public class UranusBoots extends Armor {
     int _DEFBoost = 11;
     int _SPDEFBoost = 11;
     int _SPDBoost = 11;
-    int _EVSBoost = 1;
+    int _EVSBoost = 11;
     int _LEVReq = 15;
     String _ItemName = "Uranus Boots";
     String _ArmorType = "Boots";
