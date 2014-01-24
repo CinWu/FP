@@ -1,0 +1,12 @@
+public class SilkCape extends Armor {
+
+    int _DEFBoost = 30;
+    int _SPDEFBoost = 30;
+    int _SPDBoost = 55;
+    int _EVSBoost = 55;
+    int _LEVReq = 50;
+    String _ItemName = "Silk Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
