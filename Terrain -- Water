@@ -1,4 +1,0 @@
-public class Water extends Terrain {
-    _Name = "Water";
-    _Image = "water.jpeg";
-}
