@@ -6,7 +6,7 @@ public class EarthBoots extends Armor {
     int _EVSBoost = 30;
     int _LEVReq = 35;
     String _ItemName = "Earth Boots";
-    String _ArmorType = "Boots";
+    String _ItemType = "Boots";
     String _ArmorClass = "Cestus";
 }
 
