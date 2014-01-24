@@ -1,0 +1,13 @@
+public class MarsBoots extends Armor {
+
+    int _DEFBoost = 25;
+    int _SPDEFBoost = 25;
+    int _SPDBoost = 25;
+    int _EVSBoost = 25;
+    int _LEVReq = 30;
+    String _ItemName = "Mars Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
+
