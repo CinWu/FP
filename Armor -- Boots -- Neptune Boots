@@ -6,7 +6,7 @@ public class NeptuneBoots extends Armor {
     int _EVSBoost = 8;
     int _LEVReq = 10;
     String _ItemName = "Neptune Boots";
-    String _ArmorType = "Boots";
+    String _ItemType = "Boots";
     String _ArmorClass = "Cestus";
 }
 
