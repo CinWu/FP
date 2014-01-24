@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.io.*;
 
 //If you have time, feel free to add names.
 
-public class Team{
+public class Team implements Serializable {
     
     public ArrayList<Character> teemo;
     public ArrayList<Character> select; //Choices of party
