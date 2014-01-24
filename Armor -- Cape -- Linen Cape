@@ -1,0 +1,12 @@
+public class LinenCape extends Armor {
+
+    int _DEFBoost = 6;
+    int _SPDEFBoost = 6;
+    int _SPDBoost = 18;
+    int _EVSBoost = 18;
+    int _LEVReq = 15;
+    String _ItemName = "Linen Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
