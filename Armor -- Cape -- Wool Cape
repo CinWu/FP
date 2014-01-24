@@ -1,0 +1,12 @@
+public class WoolCape extends Armor {
+
+    int _DEFBoost = 13;
+    int _SPDEFBoost = 13;
+    int _SPDBoost = 39;
+    int _EVSBoost = 39;
+    int _LEVReq = 35;
+    String _ItemName = "Wool Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
