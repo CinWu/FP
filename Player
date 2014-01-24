@@ -245,6 +245,29 @@ public class Player extends Game{
 	    }
 	}
     }
+    
+        // saving and loading                                                   
+    Save cat = new Save();
+    Load woof = new Load();
+    public void saveFile() {
+        for (int i = 0; i < teemo.size() - 1; i++) {
+            cat.saving(teemo.get(i));
+        }
+        System.out.println( "Your data has been save!." );
+
+    }
+
+    public void LoadFile() {
+        for (int i = 0; i < teemo.size() -1; i++) {
+            cat.loading(teemo.get(i));
+        }
+
+    }
+
+
+}
+
+
     // public static void main ( String[] args ) {
     // 	/*For testing purposes		  Player t = new Player();
     // 	  }
