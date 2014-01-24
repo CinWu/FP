@@ -1,0 +1,13 @@
+public class SunBoots extends Armor {
+
+    int _DEFBoost = 45;
+    int _SPDEFBoost = 45;
+    int _SPDBoost = 45;
+    int _EVSBoost = 45;
+    int _LEVReq = 50;
+    String _ItemName = "Sun Boots";
+    String _ArmorType = "Boots";
+    String _ArmorClass = "Cestus";
+}
+
+
