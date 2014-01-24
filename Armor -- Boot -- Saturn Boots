@@ -6,7 +6,7 @@ public class SaturnBoots extends Armor {
     int _EVSBoost = 15;
     int _LEVReq = 20;
     String _ItemName = "Saturn Boots";
-    String _ArmorType = "Boots";
+    String _ItemType = "Boots";
     String _ArmorClass = "Cestus";
 }
 
