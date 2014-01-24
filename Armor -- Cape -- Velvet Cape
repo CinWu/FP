@@ -1,0 +1,14 @@
+public class VelvetCape extends Armor {
+
+    int _DEFBoost = 20;
+    int _SPDEFBoost = 20;
+    int _SPDBoost = 43;
+    int _EVSBoost = 43;
+    int _LEVReq = 40;
+    String _ItemName = "Velvet Cape";
+    String _ArmorType = "Cape";
+    String _ArmorClass = "Scout";
+}
+
+
+
