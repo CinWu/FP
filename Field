@@ -5,11 +5,15 @@ import java.util.EventObject;
 import java.util.ArrayList;
 
 public class Field extends Game {
+    //====For Player class
+    protected boolean done = false;
 
     //=====keep track of things
     protected int turns = 0;
     protected boolean playersTurn = true;
     protected Player crntPlay;
+    protected int winCtr = 0;
+    protected int loseCtr = 0;
     //==========================
 
     //==========random computer is random
@@ -22,13 +26,13 @@ public class Field extends Game {
 
     //This will be the "finished piece"
     protected JFrame full = new JFrame();
-
+ 
     //Panel is used to create the field and paste it in the CENTER of the JFrame
     protected JPanel field = new JPanel();
 
     protected JPanel actPan = new JPanel(new FlowLayout(FlowLayout.CENTER));
     
-    protected JButton[][] grid; //names the grid of buttons
+    protected JButton[][] grid;  //names the grid of buttons
 
     
     protected JButton stats;
@@ -44,14 +48,16 @@ public class Field extends Game {
     protected JButton act4;
 
 
-    ArrayList<Character> cTeam;
-    ArrayList<Character> pTeam;
+    protected ArrayList<Character> cTeam;
+    protected ArrayList<Character> pTeam;
 
     public Field() {}
 
     public Field( int w, int l, Player p ) {
 
 	crntPlay = p;
+
+
 	field.setLayout( new GridLayout(w,l) ); //set layout
 
         //**********Makes grid of JButtons, gives JButtons their names from their coords and make them listen for some event(click) to happen;
@@ -98,18 +104,20 @@ public class Field extends Game {
 
         full.getContentPane().add( BorderLayout.EAST, actPan );
 
-        full.setSize(700,550);
-        full.setVisible(true);
-        full.setResizable(false);
-        
-    }
-
-    public void Go() {
+	//**********************************************************
 
         Computer newCpu = new Computer();
         addComp( newCpu );
-        addPlay( crntPlay );
-        setPos();
+        addPlay();
+
+        full.setSize(700,550);
+        full.setVisible(true);
+        full.setResizable(false);
+    }
+
+    public void Go() {
+	
+	//setPos();
 
 	while ( !isDeadP() && !isDeadC() ) {
 	    
@@ -127,6 +135,22 @@ public class Field extends Game {
 	    turns++;
 	    
         }
+	if ( !isDeadP() ) {
+
+	    JFrame yey = new JFrame("Hooray!");
+	    System.out.println("You have won this match.");
+	    JOptionPane.showMessageDialog(yey, "You have won this match!");
+	    winCtr++;
+	}	    
+
+	if ( !isDeadC() ) {
+
+	    JFrame boo = new JFrame("Boo!");
+	    System.out.println("You have lost this match.");
+	    JOptionPane.showMessageDialog(boo, "You have lost!");
+	    loseCtr++;
+	}	    
+
     }
 
     //=========HELPER FUNCTIONS===========
@@ -141,83 +165,12 @@ public class Field extends Game {
         int olY = Integer.parseInt( oldCor.substring( dividingLine+1 ) );
         
 	    //Set button icons
-	if ( c.hasMoved() ) { 
+	if ( listChar(x,y).hasMoved() ) { 
 	    grid[olX][olY].setIcon( null );
 	    grid[x][y].setIcon( new ImageIcon( "Char.jpg" ) );
 	}
 	
-    }
-    
-    public void steps( Character c, int x, int y ) {
-	int timeLoop = 0;
-        int dispX = x - c.getPosX();
-        int dispY = y - c.getPosY();
-        int disp = Math.abs(dispX) + Math.abs(dispY);
-        if ( !c.hasMoved() && disp <= c.getMove() ) {
-	    while ( disp > 0 && timeLoop < 10 ) {
-		timeLoop = 0;
-
-                while ( Math.abs(dispX) > 0 && timeLoop < 5 ) {
-		    if ( dispX > 0
-			 // && 
-			 // !anyChars(c.getPosX()+1, c.getPosY())
-			 // &&
-			 // !( grid[c.getPosX()+1][c.getPosY()].getName()
-			 //    .equals("Terrain") )
-			 ){
-
-                        moveHelper( c, ( c.getPosX()+1 ),
-				    ( c.getPosY() ) );
-                        dispX--;
-		    }
-		    else if ( dispX < 0
-			      // && 
-			      // !anyChars(c.getPosX()-1, c.getPosY())
-			      // &&
-			      // !( grid[c.getPosX()-1][c.getPosY()].getName()
-			      // 	 .equals("Terrain") )
-			      ) {
-                        moveHelper( c, ( c.getPosX()-1 ),
-				    ( c.getPosY() ) );
-                        dispX++;
-		    }
-		    // try { Thread.currentThread().sleep(1000); }
-		    // catch ( Exception e ) { }
-		    //		    timeLoop++;
-                }                
-                while ( Math.abs(dispY) > 0 && timeLoop < 5 ) {
-		    if ( dispY > 0
-			 // && 
-			 // !anyChars(c.getPosX(), c.getPosY()+1)
-			 // &&
-			 // !( grid[c.getPosX()][c.getPosY()+1].getName()
-			 //    .equals("Terrain") )
-			 ) {
-                        moveHelper( c, ( c.getPosX() ),
-				    ( c.getPosY()+1 ) );
-                        dispY--;
-		    }
-		    else if ( dispY < 0
-			      // && 
-			      // !anyChars(c.getPosX()+1, c.getPosY())
-			      // &&
-			      // !( grid[c.getPosX()][c.getPosY()-1].getName()
-			      // 	 .equals("Terrain") )
-			      ) {
-                        moveHelper( c, ( c.getPosX() ),
-				    ( c.getPosY()-1 ) );
-                        dispY++;
-		    }
-		    // try { Thread.currentThread().sleep(1000); }
-		    // catch ( Exception e ) { }
-		    timeLoop++;
-                }
-                disp = Math.abs(dispX) + Math.abs(dispY);
-	    }
-	    c.setMoved(true);
-        }
-    }
-                
+    } 
 
     //========RETURN VALUES OF VARIABLES AFTER TURN=======
     public void retVars() {
@@ -248,29 +201,47 @@ public class Field extends Game {
         cTeam = cpu.getTeam();
     }
         
-    public void addPlay( Player pl ) {
-        pTeam = pl.getTeam();
+    public void addPlay() {
+        pTeam = crntPlay.getTeam();
     }
 
     //=========Is team Dead?============
     
     public boolean isDeadC() {
-        return cTeam.size() == 0;
+	for ( int i = 0; i < cTeam.length; i++ ) {
+	    if ( cTeam.get(i).isStandby() ) {
+		return true;
+	    }
+	}
+	return false;
     }
 
     public boolean isDeadP() {
-        return pTeam.size() == 0;
+	for ( int i = 0; i < pTeam.length; i++ ) {
+	    if ( pTeam.get(i).isStandby() ) {
+		return true;
+	    }
+	}
+	return false;
     }
 
-    public void dispose( Character c ) {
-        for ( int i = 0; i < cTeam.size() || i < pTeam.size(); i++ ) {
-	    if ( i < cTeam.size() && cTeam.get(i).equals( c ) ) {
-                cTeam.remove(i);
-                grid[cTeam.get(i).getPosX()][cTeam.get(i).getPosY()].setIcon(null) ;
+    public void kill( Character c ) {
+	System.out.println( "hi" );
+
+        for ( int i = 0; i < cTeam.size(); i++ ) {
+
+	    if ( cTeam.get(i) ==  c ) {
+		grid[c.getPosX()][c.getPosY()].setIcon(null) ;
+		//                cTeam.remove(i);
+		break;
 	    }
-	    else if ( i < pTeam.size() && pTeam.get(i).equals( c ) ) {
-                pTeam.remove(i);
-                grid[pTeam.get(i).getPosX()][pTeam.get(i).getPosY()].setIcon(null) ;
+	}
+	for ( int i = 0; i < pTeam.size(); i++ ) {
+	    if ( pTeam.get(i) == c ) {
+
+		grid[pTeam.get(i).getPosX()][pTeam.get(i).getPosY()].setIcon(null) ;
+		//                pTeam.remove(i);
+		break;
 	    }
         }
     }
@@ -343,9 +314,13 @@ public class Field extends Game {
     }
     
     public void setOnMapC( Character x ) {
+
 	int xcor = (int)(grid.length*.75)+(int)(Math.random()*grid.length*.25);
+
 	int ycor = (int)(grid[0].length*.75)+(int)(Math.random()*grid[0].length*.25);
-	if ( !anyChars(xcor,ycor) && !grid[xcor][ycor].getName().equals("Terrain") ){
+
+	if ( !anyChars(xcor,ycor) 
+	     && !(grid[xcor][ycor].getName().equals("Terrain")) ){
 	    grid[xcor][ycor].setIcon( new ImageIcon( "Char.jpg" ) );
 	    x.setXY( xcor, ycor );
         }
@@ -356,14 +331,15 @@ public class Field extends Game {
 	int xcor = (int)(Math.random()*grid.length*.25);
 	int ycor = (int)(Math.random()*grid[0].length*.25);
 
-	if ( !anyChars(xcor,ycor) && !grid[xcor][ycor].getName().equals("Terrain")){
+	if ( !anyChars(xcor,ycor) 
+	     && !)grid[xcor][ycor].getName().equals("Terrain")){
 	    grid[xcor][ycor].setIcon( new ImageIcon( "Char.jpg" ) );
 	    x.setXY( xcor, ycor );
 	}
         else { setOnMapP( x ); }
     }
 
-    //========================================================
+    //===================ACTION LISTENERS=================
 
     class GridListener implements ActionListener {
 
@@ -371,6 +347,7 @@ public class Field extends Game {
         
 	    JButton source = (JButton)event.getSource();
 	    JFrame nope;
+
 
 	    if ( playersTurn &&
                  source != act1 && source != act2 &&
@@ -391,6 +368,15 @@ public class Field extends Game {
 		    }
                 }
  
+		if ( listChar( bx, by ) != null 
+		     &&
+		     lustChar( bs, by ) {
+			 
+			 System.out.println("Character is dead.");
+			 JFrame no = new JFrame("STOP!");
+			 System.out.println("Character is dead.");
+			 JOptionPane.showMessageDialog(no, "Character is dead.");
+			     
                 if ( listChar( bx, by ) == null
 		     ||
 		     listChar( bx, by ).isStandby() ) {
@@ -438,24 +424,32 @@ public class Field extends Game {
                 else {
 		    stats.setText(listChar( bx, by ).toString());
 
-		    if ( _ClickAct ) {
+		    if ( _ClickAct && listChar( bx, by ) != null ) {
                         target = listChar( bx, by );
                         _ClickAct = false;
-                        if ( _WhichAct == 1 )
+                        if ( _WhichAct == 1 ) {
 			    selection.action1(target);
+			    System.out.println(target);
+			    if ( !target.isAlive() ) {
+				kill(target);
+				System.out.println(pTeam.length)
+			    }
+			}
 
-                        else if ( _WhichAct == 2 )
+                        else if ( _WhichAct == 2 ) {
 			    if ( selection instanceof Scout ||
                                  selection instanceof Warrior )
-                                target = selection;
-			System.out.println(selection);
-			System.out.println(selection.getNamu2());
-			selection.action2(target);
+                                target = selection;	    
+			    selection.action2(target);
+			    if ( !target.isAlive() ) {
+			        kill(target);
+			    }
+			}
 		    }
 
-		    else
+		    else 
                         selection = ( listChar( bx, by ) );
-                
+		
                 }
 	    }
         }
@@ -469,25 +463,25 @@ public class Field extends Game {
 	    if ( source.equals( act1 ) && selection != null ) {
 		_ClickAct = true;
 		_WhichAct = 1;
-                actList.dispose();
+		actList.dispose();
 	    }
         
 	    else if ( source.equals( act2 ) && selection != null ) {
 		_ClickAct = true;
 		_WhichAct = 2;
-                actList.dispose();
+		actList.dispose();
 	    }
 
 	    else if ( source.equals( act3 ) && selection != null ) {
 		_ClickAct = true;
 		selection.action3();
-                actList.dispose();
+		actList.dispose();
 	    }
 
 	    else if ( source.equals( act4 ) && selection != null ) {
 		_ClickAct = true;
 		selection.action4();
-                actList.dispose();
+		actList.dispose();
 	    }
 
 	    else if ( source.equals( mov )
@@ -643,10 +637,10 @@ public class Field extends Game {
         }
     }
 
-    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public static void main ( String args[] ) {
-        Player dude = new Player();
-        Field testmap = new Field(25,25,dude);
-    }*/
+    // public static void main ( String args[] ) {
+    //     Player dude = new Player();
+    //     Field testmap = new Field(25,25,dude);
+    // }
 }
